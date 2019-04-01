@@ -1,5 +1,6 @@
 ---
 applications:
- - name: GetStartedPython
-   random-route: true
+ - name: pa181
+   random-route: false
    memory: 128M
+   path: ./
