@@ -65,15 +65,24 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
   ```sh
   # germany is nearest one
   ibmcloud target --cf-api https://api.eu-de.bluemix.net
+  cf api https://api.eu-de.bluemix.net
   ```
-
-  **STOP HERE**, the following steps are for Adrian only
-
-  5. Create an organization with relevant space
 
   6. Add organization & space
   ```sh
   ibmcloud target -o PA181.org -s PA181.space
+  ```
+
+  7. Verify it via `ibmcloud target` and the output should be
+  ```
+  API endpoint:      https://cloud.ibm.com
+  Region:            eu-de
+  User:              email@example.com
+  Account:           Name Surname's Account (abcdefghijklmnopqrstuvwxyz123456)
+  Resource group:    Default
+  CF API endpoint:   https://api.eu-de.bluemix.net (API version: 2.106.0)
+  Org:               PA181.org
+  Space:             PA181.space
   ```
 
 5. Local setup
