@@ -113,7 +113,7 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
   ```sh
   cf api https://api.eu-de.bluemix.net
   cf login
-  cf push
+  cf push # requires to be in src folder
   ```
 
   2. Verify
