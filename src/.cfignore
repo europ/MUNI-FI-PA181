@@ -1,4 +1,9 @@
-.gitignore
-LICENSE
+.vs/
+.vscode/
+bin/
+obj/
+*.sln
+*.xproj.user
 README.md
-vcap-local.json
+project.lock.json
+Properties/
