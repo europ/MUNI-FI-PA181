@@ -86,7 +86,8 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
   ```
 
   3. Launch the application locally.
-    * Follow the instruction in [`src/help/README.md`](https://github.com/europ/MUNI-FI-PA181/tree/master/src/help/README.md)
+
+      * Follow the instruction in [`src/help/README.md`](https://github.com/europ/MUNI-FI-PA181/tree/master/src/help/README.md)
 
 ### (First) Deployment
 
