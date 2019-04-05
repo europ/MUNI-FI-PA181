@@ -19,13 +19,11 @@ This project was based on [this](https://github.com/IBM-Cloud/aspnet-core-hellow
 ### Local run
 
 1. Go to the [project directory](https://github.com/europ/MUNI-FI-PA181/blob/master/src/src/pa181).
-  ```sh
-  cd src/src/pa181
-  ```
 
 2. Run
   ```sh
-  dotnet run
+  dotnet restore # Restores the dependencies for a given application.
+  dotnet run # Runs the application from source.
   ```
 
 3. Open http://localhost:5000
