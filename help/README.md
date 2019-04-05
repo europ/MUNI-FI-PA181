@@ -18,17 +18,6 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
 
   * [Download](https://www.ubuntu.com/download/alternative-downloads)
 
-2. Python3.6
-
-  * [Download](https://www.python.org/downloads/)
-
-  * Install
-  ```sh
-  sudo add-apt-repository ppa:jonathonf/python-3.6
-  sudo apt-get update
-  sudo apt-get install python3.6 python3-pip
-  ```
-
 3. Cloud Foundry Command Line Interface
 
   * [Documentation](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
@@ -55,7 +44,7 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
   ibmcloud dev help
   ```
 
-  3. Login
+  3. Login to **YOUR** account
   ```sh
   ibmcloud login --sso
   # select "3. eu-de"
@@ -64,7 +53,6 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
   4. Add API endpoint
   ```sh
   # germany is nearest one
-  ibmcloud target --cf-api https://api.eu-de.bluemix.net
   cf api https://api.eu-de.bluemix.net
   ```
 
@@ -85,7 +73,7 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
   Space:             PA181.space
   ```
 
-5. Local setup
+### Local setup
 
   1. Clone this repository (using ssh)
   ```sh
@@ -97,26 +85,23 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
   cd MUNI-FI-PA181/src
   ```
 
-  3. Install the necessary requirements
-  ```sh
-  pip install -r requirements.txt
-  ```
+  3. Launch the application locally.
+    * Follow the instruction in `[src/help/README.md](https://github.com/europ/MUNI-FI-PA181/tree/master/src/help/README.md)`
 
-  4. Launch the application on localhost
-  ```sh
-  python hello.py
-  ```
-
-6. Deployment
+### (First) Deployment
 
   1. Execute
   ```sh
   cf api https://api.eu-de.bluemix.net
   cf login
-  cf push # requires to be in src folder
+  cf push # requires to be in 'src' folder
   ```
 
   2. Verify
   ```sh
-  cf apps
+  cf apps # status report
   ```
+
+### FAQ & Troubleshooting
+
+  Please see [issues](https://github.com/europ/MUNI-FI-PA181/issues) (open/closed) of the repository.

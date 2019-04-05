@@ -1,6 +1,8 @@
 ---
 applications:
- - name: pa181
-   random-route: false
-   memory: 128M
-   path: ./
+- name: pa181
+  random-route: false
+  memory: 512M
+  env:
+    DOTNET_CLI_TELEMETRY_OPTOUT: 1
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
