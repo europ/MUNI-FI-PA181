@@ -10,3 +10,4 @@ addons:
 
 script:
   - make travis-build -C doc
+  - make travis-build -C pres
