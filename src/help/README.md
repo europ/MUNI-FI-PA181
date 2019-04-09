@@ -1,4 +1,4 @@
-# SETUP
+# LOCAL SETUP
 
 ### About
 

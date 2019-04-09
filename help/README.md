@@ -2,7 +2,7 @@
 
 ### About
 
-Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM-Bluemix/python-hello-world-flask](https://github.com/IBM-Bluemix/python-hello-world-flask).
+Step-by-step instruction guide.
 
 ### Prerequisites
 
@@ -18,7 +18,7 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
 
   * [Download](https://www.ubuntu.com/download/alternative-downloads)
 
-3. Cloud Foundry Command Line Interface
+2. Cloud Foundry Command Line Interface
 
   * [Documentation](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
 
@@ -30,7 +30,7 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
   sudo apt-get install cf-cli
   ```
 
-4. IBM Cloud Command Line Interface
+3. IBM Cloud Command Line Interface
 
   * [Documentation](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
 
@@ -80,29 +80,25 @@ Step-by-step instruction guide how to initialize, build & deploy [github.com/IBM
   git clone git@github.com:europ/MUNI-FI-PA181.git
   ```
 
-  2. All source files of the project are located inside of `MUNI-FI-PA181/src` folder
-  ```sh
-  cd MUNI-FI-PA181/src
-  ```
+  2. Follow the instruction in [`src/help/README.md`](https://github.com/europ/MUNI-FI-PA181/tree/master/src/help/README.md)
 
-  3. Launch the application locally.
-
-      * Follow the instruction in [`src/help/README.md`](https://github.com/europ/MUNI-FI-PA181/tree/master/src/help/README.md)
-
-### (First) Deployment
+### Manual Deployment
 
   1. Execute
   ```sh
-  cf api https://api.eu-de.bluemix.net
-  cf login
-  cf push # requires to be in 'src' folder
+  cf api https://api.eu-de.bluemix.net # Set or view target api url
+  cf login # Log user in
+
+  2. Go to [`src/` folder](https://github.com/europ/MUNI-FI-PA181/tree/master/src) - folder must contain `manifest.yml` configuration file.
+  ```sh
+  cf push # Push a new app or sync changes to an existing app
   ```
 
-  2. Verify
+  3. Verify
   ```sh
   cf apps # status report
   ```
 
 ### FAQ & Troubleshooting
 
-  Please see [issues](https://github.com/europ/MUNI-FI-PA181/issues) (open/closed) of the repository.
+  Please see [issues](https://github.com/europ/MUNI-FI-PA181/issues) (open/closed) of this repository.
