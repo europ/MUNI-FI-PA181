@@ -88,6 +88,7 @@ Step-by-step instruction guide.
   ```sh
   cf api https://api.eu-de.bluemix.net # Set or view target api url
   cf login # Log user in
+  ```
 
   2. Go to [`src/` folder](https://github.com/europ/MUNI-FI-PA181/tree/master/src) - folder must contain `manifest.yml` configuration file.
   ```sh
