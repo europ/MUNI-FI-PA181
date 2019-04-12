@@ -1,0 +1,112 @@
+.question {
+  width: 100%;
+  .input {
+    width: 2.3em;
+    max-width: 2.3em;
+    input {
+      padding-bottom: 3px;
+      text-align: end;
+    }
+  }
+  .top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      .correct {
+        min-width: 12em;
+        margin-left: 1em;
+      }
+
+      .description {
+        margin-left: 1em;
+      }
+    }
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 1em;
+    cursor: pointer;
+    background: $color-white-dark;
+
+    &:hover {
+      background-color: $color-grey-light;
+    }
+
+    &-content {
+      padding: 0.5em 0.5em 0.75em !important;
+    }
+  }
+
+  .button {
+    width: 100%;
+    min-height: 3em;
+    margin-bottom: 1em;
+    &-row {
+      width: 100%;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.5em;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-phablet) {
+  .question {
+    .button {
+      width: 30%;
+      margin-bottom: 1em;
+      &-row {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    .top {
+      .info {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .question {
+    .top {
+      flex-direction: row;
+      justify-content: space-between;
+
+      .main {
+        width: 68%;
+      }
+
+      .info {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 30%;
+
+        .description {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
