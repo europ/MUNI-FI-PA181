@@ -6,7 +6,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 
 import { theme } from "./theme";
 import { AppWrapper } from "./components";
-import { Home, SignIn, About, Tests, Question, AddTest } from "./modules";
+import { SignIn, About, Tests, Question, NewTest } from "./modules";
 import { languages, textsEnum } from "./enums";
 
 const App = ({ menuItems, componentProps }) => (
@@ -58,9 +58,8 @@ export default compose(
   })),
   withProps(({ texts, language, updateAppState, changeLanguage }) => ({
     menuItems: [
-      { label: texts.HOME, url: "/", exact: true, component: Home },
-      { label: texts.TESTS, url: "/tests", exact: true, component: Tests },
-      { label: texts.ADD_NEW_TEST, url: "/add-test", component: AddTest },
+      { label: texts.TESTS, url: "/", exact: true, component: Tests },
+      { label: texts.ADD_NEW_TEST, url: "/new-test", component: NewTest },
       { label: texts.ABOUT, url: "/about", component: About }
     ],
     componentProps: { texts, language, updateAppState, changeLanguage }

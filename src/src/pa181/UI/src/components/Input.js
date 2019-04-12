@@ -1,6 +1,6 @@
 import React from "react";
-import Input from "@material-ui/core/Input";
+import TextField from "@material-ui/core/TextField";
 
-const InputComponent = props => <Input {...props} />;
+const Input = props => <TextField {...props} />;
 
-export default InputComponent;
+export default Input;

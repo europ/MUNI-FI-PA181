@@ -13,6 +13,8 @@ const ButtonComponent = props => <Button {...props} />;
 export default compose(
   defaultProps({ label: "" }),
   renameProp("label", "children"),
-  withProps(({ raised }) => ({ variant: raised ? "contained" : "text" })),
-  mapProps(({ label, raised, ...rest }) => rest)
+  withProps(({ raised, outlined }) => ({
+    variant: raised ? "contained" : outlined ? "outlined" : "text"
+  })),
+  mapProps(({ label, raised, outlined, ...rest }) => rest)
 )(ButtonComponent);

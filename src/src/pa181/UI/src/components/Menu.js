@@ -26,5 +26,5 @@ export default compose(
       </MenuItem>
     ))
   })),
-  mapProps(({ items, ...rest }) => rest)
+  mapProps(({ items, closeOnItemClick, ...rest }) => rest)
 )(MenuComponent);

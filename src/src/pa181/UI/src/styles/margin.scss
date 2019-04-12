@@ -44,6 +44,9 @@
   }
   &-bottom {
     margin-bottom: 1em !important;
+    &-very-small {
+      margin-bottom: 0.25em !important;
+    }
     &-small {
       margin-bottom: 0.5em !important;
       &-only {

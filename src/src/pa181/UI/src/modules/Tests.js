@@ -31,6 +31,7 @@ const Tests = ({ history, texts }) => (
         {...{
           key,
           onClick: () => history.push(`/tests/${name}/1`),
+          className: "card",
           content: (
             <CardContent
               {...{
@@ -72,15 +73,14 @@ const Tests = ({ history, texts }) => (
                 />
               </div>
             </CardContent>
-          ),
-          className: "card"
+          )
         }}
       />
     ))}
     <Fab
       {...{
         color: "primary",
-        onClick: () => history.push("/add-test"),
+        onClick: () => history.push("/new-test"),
         className: "floating-button"
       }}
     >

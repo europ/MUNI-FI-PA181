@@ -14,8 +14,6 @@ const DropDownComponent = ({
   <>
     <ButtonComponent
       {...{
-        ariaOwns: anchorEl ? "render-props-menu" : undefined,
-        ariaHaspopup: "true",
         onClick: event => setAnchorEl(event.currentTarget),
         ...props
       }}

@@ -7,8 +7,8 @@ $color-white-dark: #f9f9f9;
 $color-black: #111111;
 $color-grey: rgba(0, 0, 0, 0.54);
 $color-grey-light: rgba(0, 0, 0, 0.075);
-$color-red: #FF4136;
-$color-green: #2ECC40;
+$color-red: #ff4136;
+$color-green: #2ecc40;
 
 /* BREAKPOINTS */
 $breakpoint-big-desktop: 1000px;
@@ -28,7 +28,13 @@ $breakpoint-mini: 300px;
 @import "./margin.scss";
 @import "./padding.scss";
 
+/* COMPONENTS */
+@import "./appLayout.scss";
+@import "./modal.scss";
+@import "./uploadFile.scss";
+
 /* MODULES */
 
 @import "./question.scss";
+@import "./newTest.scss";
 @import "./tests.scss";
