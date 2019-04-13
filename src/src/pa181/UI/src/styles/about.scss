@@ -1,0 +1,17 @@
+.about {
+  width: 100%;
+  .row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  .label {
+    text-align: center;
+    font-weight: normal;
+  }
+  .text {
+    width: 100%;
+    text-align: center;
+  }
+}

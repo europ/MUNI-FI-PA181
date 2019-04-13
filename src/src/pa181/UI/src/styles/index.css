@@ -13,6 +13,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
 
+a {
+  color: rgba(0, 0, 0, 0.54); }
+  a:hover {
+    color: #111111; }
+
+.bold {
+  font-weight: bold; }
+
+.normal {
+  font-weight: normal; }
+
+.text-center {
+  text-align: center; }
+
 .width-full {
   width: 100%; }
 
@@ -311,6 +325,20 @@ code {
       font-size: 8em !important; } }
 
 /* MODULES */
+.about {
+  width: 100%; }
+  .about .row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1em; }
+  .about .label {
+    text-align: center;
+    font-weight: normal; }
+  .about .text {
+    width: 100%;
+    text-align: center; }
+
 .question {
   width: 100%; }
   .question .input {

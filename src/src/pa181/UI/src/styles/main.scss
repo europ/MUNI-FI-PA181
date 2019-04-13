@@ -15,6 +15,28 @@ code {
     monospace;
 }
 
+a {
+  color: $color-grey;
+
+  &:hover {
+    color: $color-black;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+.text {
+  &-center {
+    text-align: center;
+  }
+}
+
 .width {
   &-full {
     width: 100%;
