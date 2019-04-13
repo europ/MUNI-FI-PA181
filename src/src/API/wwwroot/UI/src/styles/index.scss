@@ -1,0 +1,41 @@
+/* COLORS */
+$color-primary: #0074d9;
+$color-secondary: #01ff70;
+
+$color-white: #ffffff;
+$color-white-dark: #f9f9f9;
+$color-black: #111111;
+$color-grey: rgba(0, 0, 0, 0.54);
+$color-grey-light: rgba(0, 0, 0, 0.075);
+$color-red: #ff4136;
+$color-green: #2ecc40;
+
+/* BREAKPOINTS */
+$breakpoint-big-desktop: 1000px;
+$breakpoint-desktop: 800px;
+$breakpoint-tablet: 600px;
+$breakpoint-phablet: 500px;
+$breakpoint-mobile: 400px;
+$breakpoint-mini: 300px;
+
+/* MAIN */
+
+@import "./main.scss";
+
+/* BASIC */
+
+@import "./flex.scss";
+@import "./margin.scss";
+@import "./padding.scss";
+
+/* COMPONENTS */
+@import "./appLayout.scss";
+@import "./modal.scss";
+@import "./uploadFile.scss";
+
+/* MODULES */
+
+@import "./about.scss";
+@import "./question.scss";
+@import "./newTest.scss";
+@import "./tests.scss";

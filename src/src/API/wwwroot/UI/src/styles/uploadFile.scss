@@ -1,0 +1,78 @@
+.upload-file {
+  min-width: 70vw;
+  min-height: 70vh;
+
+  // .drop-zone {
+  //   width: calc(100% - 2em);
+  //   padding: 1em;
+  //   &-inner {
+  //     width: 100%;
+  //     min-width: 100%;
+  //     height: calc(50vh - 2em);
+  //     min-height: calc(50vh - 2em);
+  //     border: 2px dashed $color-grey;
+  //     border-radius: 1em;
+  //   }
+  // }
+
+  .button-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: calc(100% - 2em);
+    padding: 1em;
+  }
+}
+
+.drop-zone {
+  width: calc(70vw - 6em);
+  height: calc(70vh - 6em);
+  min-width: calc(70vw - 6em);
+  min-height: calc(70vh - 6em);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  margin: 1em;
+  overflow: hidden;
+  border: 2px dashed $color-grey;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: $color-grey-light;
+
+  &.drop-zone-active {
+    background-color: $color-white;
+  }
+
+  .icon {
+    font-size: 3em !important;
+    color: $color-grey;
+  }
+
+  .label {
+    margin: 0;
+    margin-top: 0.5em;
+    text-align: center;
+    color: $color-grey;
+    display: none;
+  }
+
+  @media (min-width: $breakpoint-mini) {
+    .icon {
+      font-size: 5em !important;
+    }
+  }
+
+  @media (min-width: $breakpoint-mobile) {
+    .label {
+      display: block;
+    }
+  }
+
+  @media (min-width: $breakpoint-phablet) {
+    .icon {
+      font-size: 8em !important;
+    }
+  }
+}
