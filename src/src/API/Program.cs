@@ -19,7 +19,7 @@ namespace API
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseWebRoot(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ui/build"))
+                .UseWebRoot(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UI/build"))
                 .UseStartup<Startup>();
     }
 }
