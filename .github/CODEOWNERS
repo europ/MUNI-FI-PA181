@@ -1,0 +1,14 @@
+# Global
+*       @europ
+
+# Specific to File Type
+*.js    @jirkacechak
+*.cs    @vaclavstehlik
+
+# Specific to a Particular File
+/src/manifest.yml    @europ
+
+# Specific to a Particular Folder
+/doc/   @europ
+/help/  @europ
+/pres/  @europ
