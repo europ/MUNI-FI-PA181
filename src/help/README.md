@@ -18,7 +18,7 @@ This project was based on [this](https://github.com/IBM-Cloud/aspnet-core-hellow
 
 ### Local run
 
-1. Go to the [project directory](https://github.com/europ/MUNI-FI-PA181/blob/master/src/src/pa181).
+1. Go to the [project directory](https://github.com/europ/MUNI-FI-PA181/blob/master/src/src/API).
 
 2. Run
   ```sh
