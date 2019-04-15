@@ -154,6 +154,7 @@ Everyone from us was in charge of a certain part of the project. The work was di
 
     \item Jan Ondruch
     \begin{itemize}
+        \item application design (idea)
         \item \TODO
     \end{itemize}
 
@@ -166,6 +167,8 @@ Everyone from us was in charge of a certain part of the project. The work was di
 
     \item Tadeáš Pavlík
     \begin{itemize}
+        \item testing
+        \item application design (concept)
         \item \TODO
     \end{itemize}
 
@@ -187,9 +190,18 @@ Firstly, we have chosen a stable, reliable and safe platform supporting team pro
 
 \section{Application deployment}
 
-\TODO: toolchain configuration\\
+The deployment was configured before the core implementation itself. Deployment was initialized and configured on the already set \textit{'Hello, World!'} application. We are using a continuous deployment approach - automated build and deploy method via IBM's delivery pipeline. The delivery pipeline was configured to automatically install all required dependencies, build and deploy the application.\\
 
-The deployment was configured before the core implementation itself. Deployment was initialized and configured on the already set \textit{'Hello, World!'} application. We are using a continuous deployment approach - automated build and deploy method via IBM's delivery pipeline. The delivery pipeline was configured to automatically install all required dependencies, build and deploy the application.
+Whole deployment is based on one own properly configured DevOps toolchain. The toolchain is shown in Figure \ref{fig:toolchain}, which includes GitHub\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#github}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#github}}, Travis CI\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#othertool}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#othertool}} (as other tool) and Delivery Pipeline\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#deliverypipeline}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#deliverypipeline}}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{img/toolchain.png}
+    \caption{Toolchain}
+    \label{fig:toolchain}
+\end{figure}
+
+The toolchain providing a continuous delivery service allows us to focus on code only. After the continuous delivery toolchain was set properly, we just had to commit the changes to the repository and the application was immediately built and deployed.
 
 \section{Application instructions}
 
@@ -199,7 +211,13 @@ The deployment was configured before the core implementation itself. Deployment 
 
 \TODO: images (add it to 'doc/img' folder - vector would be the best or raster with high resolution)
 
+\section{Development issues}
 
+During the project development we have faced a few problems that have been reported:
+\begin{itemize}
+    \item \href{https://github.com/IBM-Bluemix-Docs/ContinuousDelivery/issues/13}{github.com/IBM-Bluemix-Docs/ContinuousDelivery/issues/13}
+    \item \href{https://github.com/IBM-Cloud/aspnet-core-helloworld/issues/39}{github.com/IBM-Cloud/aspnet-core-helloworld/issues/39}
+\end{itemize}
 
 \begin{comment}
 
