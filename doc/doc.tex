@@ -173,20 +173,24 @@ Everyone from us was in charge of a certain part of the project. The work was di
     \item Jan Ondruch
     \begin{itemize}
         \item application design (idea)
+        \item testing (user interface)
+        \item specifications
         \item \TODO
     \end{itemize}
 
     \item Jiří Čechák
     \begin{itemize}
-        \item application frontend
+        \item application user interface (layout, views)
         \item application design (user interface)
         \item \TODO
     \end{itemize}
 
     \item Tadeáš Pavlík
     \begin{itemize}
-        \item testing
         \item application design (concept)
+        \item testing (blackbox)
+        \item application design (user interface)
+        \item analysis
         \item \TODO
     \end{itemize}
 
@@ -208,7 +212,7 @@ Firstly, we have chosen a stable, reliable and safe platform supporting team pro
 
 \section{Application deployment}
 
-The deployment was configured before the core implementation itself. Deployment was initialized and configured on the already set \textit{'Hello, World!'} application. We are using a continuous deployment approach - automated build and deploy method via IBM's delivery pipeline. The delivery pipeline was configured to automatically install all required dependencies, build and deploy the application.\\
+The deployment was configured before the core implementation itself. Deployment was initialized and configured on the already set \textit{'Hello, World!'} application. We wanted to create a fully automated delivery with zero intervention required, which allowed us to concentrate and focus on code only instead of problematic deployment. We were using a continuous delivery approach - automated build and deploy method via IBM's delivery pipeline. The delivery pipeline was configured to automatically install all required dependencies, build and deploy the application. The development process required to just commit the changes into the version control repository.\\
 
 Whole deployment is based on one own properly configured DevOps toolchain. The toolchain is shown in Figure \ref{fig:toolchain}, which includes GitHub\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#github}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#github}}, Travis CI\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#othertool}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#othertool}} (as other tool) and Delivery Pipeline\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#deliverypipeline}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#deliverypipeline}}.
 
@@ -236,19 +240,5 @@ During the project development we have faced a few problems that have been repor
     \item \href{https://github.com/IBM-Bluemix-Docs/ContinuousDelivery/issues/13}{github.com/IBM-Bluemix-Docs/ContinuousDelivery/issues/13}
     \item \href{https://github.com/IBM-Cloud/aspnet-core-helloworld/issues/39}{github.com/IBM-Cloud/aspnet-core-helloworld/issues/39}
 \end{itemize}
-
-\begin{comment}
-
-\cite{travis-ci}
-
-\newpage
-
-\section{References}
-\bibliographystyle{englishiso}
-\begin{flushleft}
-    \bibliography{quotation}
-\end{flushleft}
-
-\end{comment}
 
 \end{document}
