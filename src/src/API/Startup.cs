@@ -1,15 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.IO;
+using API.Utilities.ErrorHandling;
+using API.Utilities.Logging;
+using AutoMapper;
+using Entities.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using NLog;
+using Repositories;
+using Repositories.Interfaces;
+using Services;
+using Services.Interfaces;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace API
@@ -18,6 +24,7 @@ namespace API
     {
         public Startup(IConfiguration configuration)
         {
+            LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
         }
 
@@ -28,10 +35,21 @@ namespace API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info {Title = "My API", Version = "v1"}); });
+            services.AddAutoMapper();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            // TODO: Change for production environment.
+            services.AddDbContext<AppDbContext>(options => { options.UseInMemoryDatabase("my-api-in-memory"); });
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ITestRepository, TestRepository>();
+            services.AddScoped<ITestService, TestService>();
+
+            services.AddSingleton<ILoggerManager, LoggerManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerManager logger)
         {
             if (env.IsDevelopment())
             {
@@ -48,10 +66,12 @@ namespace API
                 DefaultFileNames = new
                     List<string> {"index.html"}
             });
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseStaticFiles();
-            app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+//            app.ConfigureExceptionHandler(logger);
+            app.UseMvc();
         }
     }
 }
