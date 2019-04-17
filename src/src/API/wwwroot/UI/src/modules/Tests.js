@@ -4,9 +4,7 @@ import { withRouter } from "react-router-dom";
 import { map } from "lodash";
 import CardContent from "@material-ui/core/CardContent";
 import IconButton from "@material-ui/core/IconButton";
-import Fab from "@material-ui/core/Fab";
 import Star from "@material-ui/icons/Star";
-import Add from "@material-ui/icons/Add";
 
 import { Card, Button } from "../components";
 
@@ -77,15 +75,6 @@ const Tests = ({ history, texts }) => (
         }}
       />
     ))}
-    <Fab
-      {...{
-        color: "primary",
-        onClick: () => history.push("/new-test"),
-        className: "floating-button"
-      }}
-    >
-      <Add />
-    </Fab>
   </div>
 );
 
