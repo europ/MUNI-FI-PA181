@@ -169,6 +169,7 @@ Everyone from us was in charge of a certain part of the project. The work was di
         \item creation of continuous delivery pipeline
         \item project deployment
         \item bug fixing
+        \item documentation
     \end{itemize}
 
     \item Jan Ondruch
@@ -194,7 +195,7 @@ Everyone from us was in charge of a certain part of the project. The work was di
         \item analysis
         \item application design (concept)
         \item application design (user interface)
-        \item application backend
+        \item application backend \TODO
         \item testing (blackbox)
     \end{itemize}
 
@@ -214,7 +215,7 @@ Firstly, we have chosen a stable, reliable and safe platform supporting team pro
 
 \section{Application implementation}
 
-\TODO: backend-frontend interconnection, architecture pattern (MVC), API
+The project was implemented via \textit{ASP.NET} framework using a Model--view--controller as an architectural pattern. The core UI was implemented in JavaScript using React library. This UI was later interconnected with backend. Our application supports an application log too to find easier the fatal failures. Our application was divided into few parts that communicate together and process requests - API, entities, repositories and services. The requests are firstly processed in the API, more precisely endpoint in controller. To process this request, the required actions are delegated to services (the business logic specific for our application is implemented here) that delegates the related subrequests to repository that provides the database communication using wrappers. \TODO
 
 \section{Application deployment}
 
