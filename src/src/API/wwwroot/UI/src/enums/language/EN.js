@@ -20,6 +20,7 @@ export const EN = {
   MENU: "Menu",
   NAME: "Name",
   NEW_TEST: "New test",
+  NEW_TEST_FAILED: "Failed to save new test.",
   NEXT: "Next",
   NO: "No",
   NUMBER_OF_QUESTIONS: "Number of questions",

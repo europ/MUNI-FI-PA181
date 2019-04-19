@@ -9,13 +9,14 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 
 const DrawerComponent = ({ history, items, open, onClose, texts }) => (
-  <Drawer {...{ open, onClose }}>
+  <Drawer {...{ open, onClose, className: "drawer" }}>
     <div
       {...{
-        className: "drawer-header"
+        className: "drawer-header",
+        onClick: onClose
       }}
     >
-      <Typography {...{ variant: "h6" }}>{texts.APP_NAME}</Typography>
+      <Typography {...{ variant: "h5" }}>{texts.APP_NAME}</Typography>
     </div>
     <List {...{ className: "drawer-list" }}>
       {map(items, ({ label, url }, key) => (

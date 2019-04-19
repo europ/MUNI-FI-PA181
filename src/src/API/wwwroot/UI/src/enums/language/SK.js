@@ -21,6 +21,7 @@ export const SK = {
   MENU: "Menu",
   NAME: "Názov",
   NEW_TEST: "Nová sada otázok",
+  NEW_TEST_FAILED: "Nepodarilo sa uložiť novú sadu otázok.",
   NEXT: "Ďalší",
   NO: "Nie",
   NUMBER_OF_QUESTIONS: "Počet otázok",

@@ -1,5 +1,5 @@
 import React from "react";
-import { compose, withProps } from "recompose";
+import { compose, withProps, mapProps } from "recompose";
 import Divider from "@material-ui/core/Divider";
 
 import { ModalButton, Button, DropZone } from ".";
@@ -19,5 +19,6 @@ export default compose(
         </div>
       </div>
     )
-  }))
+  })),
+  mapProps(({ closeButtonLabel, dropZoneLabel, ...rest }) => rest)
 )(UploadFile);

@@ -21,6 +21,7 @@ export const CZ = {
   MENU: "Menu",
   NAME: "Název",
   NEW_TEST: "Nová sada otázek",
+  NEW_TEST_FAILED: "Nepodařilo se uložit novou sadu otázek.",
   NEXT: "Další",
   NO: "Ne",
   NUMBER_OF_QUESTIONS: "Počet otázek",

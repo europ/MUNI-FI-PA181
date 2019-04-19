@@ -1,4 +1,5 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { compose, withState, withHandlers, withProps } from "recompose";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { map } from "lodash";
@@ -9,37 +10,39 @@ import { AppWrapper } from "./components";
 import { SignIn, About, Tests, Question, NewTest } from "./modules";
 import { languages, textsEnum } from "./enums";
 
-const App = ({ menuItems, componentProps }) => (
-  <MuiThemeProvider {...{ theme }}>
-    <BrowserRouter>
-      <AppWrapper {...{ items: menuItems, ...componentProps }}>
-        <Switch>
-          {map(
-            [
-              ...map(menuItems, ({ url, exact, component }) => ({
-                path: url,
-                exact,
-                component
-              })),
-              { path: "/sign-in", component: SignIn },
-              { path: "/tests/:test/:question", component: Question }
-            ],
-            ({ component: Component, ...route }, key) => (
-              <Route
-                {...{
-                  key,
-                  ...route,
-                  render: routeProps => (
-                    <Component {...{ ...routeProps, ...componentProps }} />
-                  )
-                }}
-              />
-            )
-          )}
-        </Switch>
-      </AppWrapper>
-    </BrowserRouter>
-  </MuiThemeProvider>
+const App = ({ store, menuItems, componentProps }) => (
+  <Provider {...{ store }}>
+    <MuiThemeProvider {...{ theme }}>
+      <BrowserRouter>
+        <AppWrapper {...{ items: menuItems, ...componentProps }}>
+          <Switch>
+            {map(
+              [
+                ...map(menuItems, ({ url, exact, component }) => ({
+                  path: url,
+                  exact,
+                  component
+                })),
+                { path: "/sign-in", component: SignIn },
+                { path: "/tests/:test/:question", component: Question }
+              ],
+              ({ component: Component, ...route }, key) => (
+                <Route
+                  {...{
+                    key,
+                    ...route,
+                    render: routeProps => (
+                      <Component {...{ ...routeProps, ...componentProps }} />
+                    )
+                  }}
+                />
+              )
+            )}
+          </Switch>
+        </AppWrapper>
+      </BrowserRouter>
+    </MuiThemeProvider>
+  </Provider>
 );
 
 export default compose(

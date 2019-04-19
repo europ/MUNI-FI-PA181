@@ -1,30 +1,18 @@
 import React from "react";
-import { compose } from "recompose";
+import { compose, withState, lifecycle } from "recompose";
 import { withRouter } from "react-router-dom";
-import { map } from "lodash";
+import { map, get } from "lodash";
 import CardContent from "@material-ui/core/CardContent";
 import IconButton from "@material-ui/core/IconButton";
 import Star from "@material-ui/icons/Star";
 
 import { Card, Button } from "../components";
+import { withLoader } from "../hoc";
+import { getTests } from "../actions";
 
-const tests = [
-  { name: "PA181", count: 12, favorite: true },
-  { name: "PV239", count: 1, favorite: true },
-  { name: "PA152", count: 164 },
-  {
-    name: "PA164 - půlsemestrálka",
-    count: 99
-  },
-  { name: "PV136", count: 1235 },
-  { name: "PV136", count: 1235 },
-  { name: "PV136", count: 1235 },
-  { name: "PV136", count: 1235 }
-];
-
-const Tests = ({ history, texts }) => (
+const Tests = ({ tests, history, texts }) => (
   <div {...{ className: "tests" }}>
-    {map(tests, ({ name, count, favorite }, key) => (
+    {map(tests, ({ name, questions, favorite }, key) => (
       <Card
         {...{
           key,
@@ -57,7 +45,7 @@ const Tests = ({ history, texts }) => (
                     {name}
                   </h2>
                   <p {...{ className: "margin-none" }}>
-                    {texts.NUMBER_OF_QUESTIONS}: {count}
+                    {texts.NUMBER_OF_QUESTIONS}: {get(questions, "length", 0)}
                   </p>
                 </div>
               </div>
@@ -78,4 +66,21 @@ const Tests = ({ history, texts }) => (
   </div>
 );
 
-export default compose(withRouter)(Tests);
+export default compose(
+  withRouter,
+  withLoader,
+  withState("tests", "setTests", []),
+  lifecycle({
+    async componentWillMount() {
+      const { setTests, showLoader } = this.props;
+
+      showLoader();
+
+      const response = await getTests();
+
+      setTests(response);
+
+      showLoader(false);
+    }
+  })
+)(Tests);
