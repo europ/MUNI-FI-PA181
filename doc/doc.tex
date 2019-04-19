@@ -29,6 +29,8 @@
 
 \def\UrlBreaks{\do\/\do-} % URL breaking characters
 
+\definecolor{urlcolor}{RGB}{6, 69, 173}
+
 \newcommand{\red}[1]{\textcolor{red}{#1}} % \red{text in red}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}} % \blue{text in blue}
 \newcommand{\TODO}{\textbf{\textcolor{red}{TODO}}} % red bold TODO
@@ -109,7 +111,7 @@
 
 \section{About}
 
-Term project for course \textit{PA181 Services - Systems, Modeling and Execution}\footnote{\href{https://is.muni.cz/predmet/fi/jaro2019/PA181}{is.muni.cz/predmet/fi/jaro2019/PA181}} in year 2019. Within the project, we had to create a fully functional application using the \textit{IBM Cloud}\footnote{\href{https://cloud.ibm.com/}{cloud.ibm.com}} technology including a detailed documentation and a presentation. \textit{doc. Mouzhi Ge, Ph.D.}\footnote{\href{https://is.muni.cz/auth/osoba/239833}{is.muni.cz/auth/osoba/239833}} is the project supervisor.
+Term project for course \textit{PA181 Services - Systems, Modeling and Execution}\footnote{\href{https://is.muni.cz/predmet/fi/jaro2019/PA181}{\color{urlcolor}{is.muni.cz/predmet/fi/jaro2019/PA181}}} in year 2019. Within the project, we had to create a fully functional application using the \textit{IBM Cloud}\footnote{\href{https://cloud.ibm.com/}{\color{urlcolor}{cloud.ibm.com}}} technology including a detailed documentation and a presentation. \textit{doc. Mouzhi Ge, Ph.D.}\footnote{\href{https://is.muni.cz/auth/osoba/239833}{\color{urlcolor}{is.muni.cz/auth/osoba/239833}}} is the project supervisor.
 
 \section{Idea}
 
@@ -126,12 +128,12 @@ The following technologies were integrated and used during the development proce
 
     \item version control system (VCS)
     \begin{itemize}
-        \item GitHub\footnote{\href{https://github.com/}{github.com}}
+        \item GitHub\footnote{\href{https://github.com/}{\color{urlcolor}{github.com}}}
     \end{itemize}
 
     \item continuous integration (CI)
     \begin{itemize}
-        \item Travis CI\footnote{\href{https://travis-ci.org/}{travis-ci.org}}
+        \item Travis CI\footnote{\href{https://travis-ci.org/}{\color{urlcolor}{travis-ci.org}}}
     \end{itemize}
 \end{itemize}
 
@@ -209,6 +211,34 @@ Everyone from us was in charge of a certain part of the project. The work was di
     \end{itemize}
 \end{itemize}
 
+\section{References}
+
+Domain names of the deployed application are:
+\begin{itemize}
+    \item \href{https://pa181.eu-de.mybluemix.net/}{\color{urlcolor}{pa181.eu-de.mybluemix.net}}
+    \item \href{https://pa181.eu-de.cf.appdomain.cloud/}{\color{urlcolor}{pa181.eu-de.cf.appdomain.cloud}}
+\end{itemize}
+
+Source code of the application can be found at:
+\begin{itemize}
+    \item \href{https://github.com/europ/MUNI-FI-PA181/tree/master/src}{\color{urlcolor}{github.com/europ/MUNI-FI-PA181/tree/master/src}}
+\end{itemize}
+
+Setup guide for the application can be found at:
+\begin{itemize}
+    \item \href{https://github.com/europ/MUNI-FI-PA181/wiki/Setup}{\color{urlcolor}{github.com/europ/MUNI-FI-PA181/wiki/Setup}}
+\end{itemize}
+
+Documentation of the application can be found at:
+\begin{itemize}
+    \item \href{https://github.com/europ/MUNI-FI-PA181/blob/master/doc/doc.pdf}{\color{urlcolor}{github.com/europ/MUNI-FI-PA181/blob/master/doc/doc.pdf}}
+\end{itemize}
+
+Presentation of the application can be found at:
+\begin{itemize}
+    \item \href{https://github.com/europ/MUNI-FI-PA181/blob/master/pres/pres.pdf}{\color{urlcolor}{github.com/europ/MUNI-FI-PA181/blob/master/pres/pres.pdf}}
+\end{itemize}
+
 \section{Application initialization}
 
 Firstly, we have chosen a stable, reliable and safe platform supporting team project development - GitHub. Furthermore, GitHub provides a version control system management and the integration with IBM Cloud is supported. Subsequently, after the repository was configured properly, we had to choose the technologies. We decided to use \#C (general-purpose, multi-paradigm and object oriented programming language) and React (library for building user interfaces) for the project. Based on the above, we have initialized the project skeleton - a \textit{'Hello, World!'} application.
@@ -221,7 +251,7 @@ The project was implemented via \textit{ASP.NET} framework using a Model--view--
 
 The deployment was configured before the core implementation itself. Deployment was initialized and configured on the already set \textit{'Hello, World!'} application. We wanted to create a fully automated delivery with zero intervention required, which allowed us to concentrate and focus on code only instead of problematic deployment. We were using a continuous delivery approach - automated build and deploy method via IBM's delivery pipeline. The delivery pipeline was configured to automatically install all required dependencies, build and deploy the application. The development process required to just commit the changes into the version control repository.\\
 
-Whole deployment is based on one own properly configured DevOps toolchain. The toolchain is shown in Figure \ref{fig:toolchain}, which includes GitHub\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#github}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#github}}, Travis CI\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#othertool}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#othertool}} (as other tool) and Delivery Pipeline\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#deliverypipeline}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#deliverypipeline}}.
+Whole deployment is based on one own properly configured DevOps toolchain. The toolchain is shown in Figure \ref{fig:toolchain}, which includes GitHub\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#github}{\color{urlcolor}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#github}}}, Travis CI\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#othertool}{\color{urlcolor}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#othertool}}} (as other tool) and Delivery Pipeline\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#deliverypipeline}{\color{urlcolor}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#deliverypipeline}}}.
 
 \begin{figure}[H]
     \centering
@@ -244,8 +274,8 @@ The toolchain providing a continuous delivery service allows us to focus on code
 
 During the project development we have faced a few problems that have been reported:
 \begin{itemize}
-    \item \href{https://github.com/IBM-Bluemix-Docs/ContinuousDelivery/issues/13}{github.com/IBM-Bluemix-Docs/ContinuousDelivery/issues/13}
-    \item \href{https://github.com/IBM-Cloud/aspnet-core-helloworld/issues/39}{github.com/IBM-Cloud/aspnet-core-helloworld/issues/39}
+    \item \href{https://github.com/IBM-Bluemix-Docs/ContinuousDelivery/issues/13}{\color{urlcolor}{\color{urlcolor}}{github.com/IBM-Bluemix-Docs/ContinuousDelivery/issues/13}}
+    \item \href{https://github.com/IBM-Cloud/aspnet-core-helloworld/issues/39}{\color{urlcolor}{github.com/IBM-Cloud/aspnet-core-helloworld/issues/39}}
 \end{itemize}
 
 \end{document}
