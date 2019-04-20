@@ -7435,6 +7435,10 @@ react-app-polyfill@^0.2.2:
     raf "3.4.1"
     whatwg-fetch "3.0.0"
 
+react-country-flag@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-country-flag/-/react-country-flag-1.0.2.tgz#c15390c7a032ecc595dd89754b523c81a60c595f"
+
 react-dev-utils@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-8.0.0.tgz#7c5b227a45a32ea8ff7fbc318f336cf9e2c6e34c"

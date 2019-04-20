@@ -8,6 +8,7 @@ export { default as Drawer } from "./Drawer";
 export { default as DropDown } from "./DropDown";
 export { default as DropZone } from "./DropZone";
 export { default as ErrorBlock } from "./ErrorBlock";
+export { default as FlagIcon } from "./FlagIcon";
 export { default as Input } from "./Input";
 export { default as Loader } from "./Loader";
 export { default as Menu } from "./Menu";

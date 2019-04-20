@@ -52,6 +52,30 @@ a {
 .color-red {
   color: #ff4136 !important; }
 
+/* ICONS */
+.flag-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px; }
+  .flag-icon > span {
+    cursor: pointer !important;
+    height: 32px !important;
+    width: 32px !important; }
+    .flag-icon > span:hover {
+      height: 36px !important;
+      width: 36px !important; }
+  .flag-icon.big {
+    height: 100px;
+    width: 100px; }
+    .flag-icon.big > span {
+      height: 80px !important;
+      width: 80px !important; }
+      .flag-icon.big > span:hover {
+        height: 100px !important;
+        width: 100px !important; }
+
 /* BASIC */
 .flex {
   display: flex; }
@@ -209,26 +233,23 @@ a {
     padding: 0 !important; }
 
 /* COMPONENTS */
-.appbar {
-  z-index: 100000 !important; }
-  .appbar .title {
-    margin-left: 1em;
-    display: none; }
+.appbar .title {
+  margin-left: 1em;
+  display: none; }
 
-.drawer {
-  z-index: 100001 !important; }
-  .drawer-header {
-    height: 56px;
-    min-height: 56px;
-    max-height: 56px;
-    display: flex;
-    align-items: center;
-    padding-left: 16px;
-    cursor: pointer; }
-    .drawer-header * {
-      color: #0074d9 !important; }
-  .drawer-list {
-    width: 250px; }
+.drawer-header {
+  height: 56px;
+  min-height: 56px;
+  max-height: 56px;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  cursor: pointer; }
+  .drawer-header * {
+    color: #0074d9 !important; }
+
+.drawer-list {
+  width: 250px; }
 
 .page-wrapper {
   margin-top: 64px;
@@ -280,7 +301,7 @@ a {
   height: 100vh;
   display: flex;
   justify-content: center;
-  padding-top: 128px;
+  align-items: center;
   background: rgba(255, 255, 255, 0.8); }
 
 .modal-content {
@@ -290,7 +311,12 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow-y: auto; }
+  overflow-y: auto !important; }
+
+.modal-languages {
+  min-height: calc(300px + 2em);
+  min-width: 200px;
+  background: rgba(0, 0, 0, 0.075); }
 
 .upload-file {
   min-width: 70vw;

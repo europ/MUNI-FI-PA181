@@ -6,3 +6,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   overflow-y: auto; }
+
+.modal-languages {
+  min-height: 300px;
+  min-width: 200px; }

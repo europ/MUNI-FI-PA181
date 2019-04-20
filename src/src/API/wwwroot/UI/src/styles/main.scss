@@ -71,8 +71,39 @@ a {
   &-green {
     color: $color-green !important;
   }
-  
+
   &-red {
     color: $color-red !important;
+  }
+}
+
+/* ICONS */
+
+.flag-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  & > span {
+    cursor: pointer !important;
+    height: 32px !important;
+    width: 32px !important;
+    &:hover {
+      height: 36px !important;
+      width: 36px !important;
+    }
+  }
+  &.big {
+    height: 100px;
+    width: 100px;
+    & > span {
+      height: 80px !important;
+      width: 80px !important;
+      &:hover {
+        height: 100px !important;
+        width: 100px !important;
+      }
+    }
   }
 }

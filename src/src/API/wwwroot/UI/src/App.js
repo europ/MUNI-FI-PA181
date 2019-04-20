@@ -1,14 +1,21 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { compose, withState, withHandlers, withProps } from "recompose";
+import {
+  compose,
+  withState,
+  withHandlers,
+  withProps,
+  lifecycle
+} from "recompose";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { map } from "lodash";
+import { map, find } from "lodash";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 
 import { theme } from "./theme";
 import { AppWrapper } from "./components";
 import { SignIn, About, Tests, Question, NewTest } from "./modules";
-import { languages, textsEnum } from "./enums";
+import { languages, languagesEnum, textsEnum } from "./enums";
+import { storage } from "./utils";
 
 const App = ({ store, menuItems, componentProps }) => (
   <Provider {...{ store }}>
@@ -52,8 +59,21 @@ export default compose(
       setAppState({ ...appState, ...patch })
   }),
   withHandlers({
-    changeLanguage: ({ updateAppState }) => language =>
-      updateAppState({ language })
+    changeLanguage: ({ updateAppState }) => language => {
+      updateAppState({ language });
+      storage.put("language", language);
+    }
+  }),
+  lifecycle({
+    componentWillMount() {
+      const { changeLanguage } = this.props;
+
+      const language = storage.get("language");
+
+      if (find(languagesEnum, ({ id }) => id === language)) {
+        changeLanguage(language);
+      }
+    }
   }),
   withProps(({ appState }) => ({
     texts: textsEnum[appState.language],
