@@ -19,7 +19,15 @@ const ModalComponent = ({
         onClose: () => setModalOpen(false)
       }}
     />
-    <Button {...{ ...props, onClick: () => setModalOpen(true) }} />
+    <Button
+      {...{
+        ...props,
+        onClick: e => {
+          e.stopPropagation();
+          setModalOpen(true);
+        }
+      }}
+    />
   </>
 );
 

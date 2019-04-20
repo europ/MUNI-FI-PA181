@@ -10,6 +10,7 @@ export const CZ = {
   CORRECT: "Správně",
   DELETE: "Smazat",
   DELETE_STATISTICS: "Smazat statistiky",
+  DELETE_TEST_TEXT: "Opravdu chcete odstranit zvolený test?",
   DESCRIPTION: "Popis",
   DROP_FILE_HERE:
     "Přetáhněte sem soubor nebo klikněte pro zvolení souboru pro nahrání.",

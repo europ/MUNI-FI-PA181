@@ -1,18 +1,18 @@
 import React from "react";
-import { compose, withState, lifecycle } from "recompose";
+import { compose, withState, lifecycle, withHandlers } from "recompose";
 import { withRouter } from "react-router-dom";
 import { map, get } from "lodash";
 import CardContent from "@material-ui/core/CardContent";
 import IconButton from "@material-ui/core/IconButton";
 import Star from "@material-ui/icons/Star";
 
-import { Card, Button } from "../components";
+import { Card, ModalButton, Button } from "../components";
 import { withLoader } from "../hoc";
-import { getTests } from "../actions";
+import { getTests, deleteTest } from "../actions";
 
-const Tests = ({ tests, history, texts }) => (
+const Tests = ({ tests, history, texts, showLoader, loadTests }) => (
   <div {...{ className: "tests" }}>
-    {map(tests, ({ name, questions, favorite }, key) => (
+    {map(tests, ({ id, name, questions, favorite }, key) => (
       <Card
         {...{
           key,
@@ -51,11 +51,53 @@ const Tests = ({ tests, history, texts }) => (
               </div>
               <div
                 {...{
-                  className: "card-actions"
+                  className: "card-actions",
+                  onClick: e => e.stopPropagation()
                 }}
               >
-                <Button
-                  {...{ label: texts.DELETE, className: "margin-left" }}
+                <ModalButton
+                  {...{
+                    label: texts.DELETE,
+                    className: "margin-left",
+                    content: ({ modalProps: { onClose } }) => (
+                      <div {...{ className: "padding" }}>
+                        <h4>{texts.DELETE_TEST_TEXT}</h4>
+                        <div {...{ className: "flex-row-end" }}>
+                          {map(
+                            [
+                              {
+                                label: texts.CANCEL,
+                                onClick: onClose
+                              },
+                              {
+                                label: texts.SUBMIT,
+                                color: "primary",
+                                onClick: async () => {
+                                  showLoader();
+                                  const ok = await deleteTest(id);
+                                  if (ok) {
+                                    onClose();
+                                    await loadTests();
+                                  }
+                                  showLoader(false);
+                                }
+                              }
+                            ],
+                            (button, key) => (
+                              <Button
+                                {...{
+                                  key,
+                                  outlined: true,
+                                  className: "margin-left-small",
+                                  ...button
+                                }}
+                              />
+                            )
+                          )}
+                        </div>
+                      </div>
+                    )
+                  }}
                 />
               </div>
             </CardContent>
@@ -70,15 +112,20 @@ export default compose(
   withRouter,
   withLoader,
   withState("tests", "setTests", []),
-  lifecycle({
-    async componentWillMount() {
-      const { setTests, showLoader } = this.props;
-
-      showLoader();
-
+  withHandlers({
+    loadTests: ({ setTests }) => async () => {
       const response = await getTests();
 
       setTests(response);
+    }
+  }),
+  lifecycle({
+    async componentWillMount() {
+      const { loadTests, showLoader } = this.props;
+
+      showLoader();
+
+      await loadTests();
 
       showLoader(false);
     }

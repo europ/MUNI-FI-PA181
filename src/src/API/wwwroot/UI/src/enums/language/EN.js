@@ -10,6 +10,7 @@ export const EN = {
   CORRECT: "Correct",
   DELETE: "Delete",
   DELETE_STATISTICS: "Delete statistics",
+  DELETE_TEST_TEXT: "Are you sure you want to delete chosen test?",
   DESCRIPTION: "Description",
   DROP_FILE_HERE: "Drop file here or click to select file to upload.",
   EVALUATE: "Evaluate",
