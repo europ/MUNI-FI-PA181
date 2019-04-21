@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using API.Utilities.ErrorHandling;
 using API.Utilities.Logging;
@@ -70,7 +70,6 @@ namespace API
             app.UseStaticFiles();
             app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
-//            app.ConfigureExceptionHandler(logger);
             app.UseMvc();
         }
     }
