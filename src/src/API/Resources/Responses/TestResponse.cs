@@ -1,5 +1,5 @@
 using System;
-using System.Globalization;
+using System.Collections.Generic;
 
 namespace API.Resources.Responses
 {
@@ -8,6 +8,7 @@ namespace API.Resources.Responses
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public CultureInfo Language { get; set; }
+        public string Language { get; set; }
+        public ICollection<QuestionResponse> Questions { get; set; }
     }
 }
