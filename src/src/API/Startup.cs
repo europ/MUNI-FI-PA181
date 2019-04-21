@@ -1,5 +1,6 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
+using API.Extensions;
 using API.Utilities.ErrorHandling;
 using API.Utilities.Logging;
 using AutoMapper;
@@ -12,10 +13,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NLog;
-using Repositories;
-using Repositories.Interfaces;
-using Services;
-using Services.Interfaces;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace API
@@ -40,10 +37,7 @@ namespace API
 
             // TODO: Change for production environment.
             services.AddDbContext<AppDbContext>(options => { options.UseInMemoryDatabase("my-api-in-memory"); });
-
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<ITestRepository, TestRepository>();
-            services.AddScoped<ITestService, TestService>();
+            services.AddServices(Configuration);
 
             services.AddSingleton<ILoggerManager, LoggerManager>();
         }

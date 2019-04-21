@@ -16,7 +16,10 @@ namespace Repositories
 
         public async Task<IEnumerable<Test>> GetAll()
         {
-            return await Context.Tests.ToListAsync();
+            return await Context.Tests
+                .Include(test => test.Questions)
+                .ThenInclude(question => question.Answers)
+                .ToListAsync();
         }
 
         public async Task Add(Test test)
@@ -26,7 +29,10 @@ namespace Repositories
 
         public async Task<Test> Find(Guid id)
         {
-            return await Context.Tests.FindAsync(id);
+            return await Context.Tests
+                .Include(test => test.Questions)
+                .ThenInclude(question => question.Answers)
+                .SingleOrDefaultAsync(test => test.Id == id);
         }
 
         public void Update(Test newTest, Test oldTest)
