@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 
 namespace API.Resources.Responses
 {
@@ -8,6 +7,6 @@ namespace API.Resources.Responses
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public CultureInfo Language { get; set; }
+        public string Language { get; set; }
     }
 }
