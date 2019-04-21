@@ -44,7 +44,12 @@ namespace API.Controllers
         {
             var answer = _mapper.Map<AnswerRequest, Answer>(answerRequest);
             await _answerService.Create(answer);
-            return Ok();
+
+            var actionResult = await Get(answer.Id);
+            var okObjectResult = actionResult as OkObjectResult;
+            var answerResponse = okObjectResult?.Value as AnswerResponse;
+
+            return CreatedAtAction(nameof(Get), new {id = answer.Id}, answerResponse);
         }
 
         [HttpPut("{id}")]

@@ -44,7 +44,12 @@ namespace API.Controllers
         {
             var test = _mapper.Map<TestRequest, Test>(testRequest);
             await _testService.Create(test);
-            return Ok();
+
+            var actionResult = await Get(test.Id);
+            var okObjectResult = actionResult as OkObjectResult;
+            var testResponse = okObjectResult?.Value as TestResponse;
+
+            return CreatedAtAction(nameof(Get), new {id = test.Id}, testResponse);
         }
 
         [HttpPut("{id}")]
