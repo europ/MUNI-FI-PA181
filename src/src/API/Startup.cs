@@ -7,7 +7,6 @@ using AutoMapper;
 using Entities.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,16 +29,15 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info {Title = "My API", Version = "v1"}); });
             services.AddAutoMapper();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.ConfigureAuthentication(Configuration);
 
             // TODO: Change for production environment.
             services.AddDbContext<AppDbContext>(options => { options.UseInMemoryDatabase("my-api-in-memory"); });
             services.AddServices(Configuration);
-
-            services.AddSingleton<ILoggerManager, LoggerManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,16 +52,23 @@ namespace API
                 app.UseHsts();
             }
 
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
+            app.UseAuthentication();
+            app.UseMiddleware<ExceptionMiddleware>();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+
             app.UseHttpsRedirection();
             app.UseDefaultFiles(new DefaultFilesOptions
             {
                 DefaultFileNames = new
                     List<string> {"index.html"}
             });
-            app.UseMiddleware<ExceptionMiddleware>();
             app.UseStaticFiles();
-            app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
             app.UseMvc();
         }
     }
