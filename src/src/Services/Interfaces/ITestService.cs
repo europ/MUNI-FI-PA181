@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Entities;
+using Entities.DTOs;
 
 namespace Services.Interfaces
 {
@@ -12,5 +13,6 @@ namespace Services.Interfaces
         Task Create(Test test);
         Task Update(Guid id, Test test);
         Task Delete(Guid id);
+        Task<Guid> ImportTest(TestImportDto testImportDto);
     }
 }

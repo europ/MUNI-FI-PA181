@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Entities;
+using Entities.DTOs;
 using Repositories.Interfaces;
 using Services.Interfaces;
 
@@ -9,13 +10,17 @@ namespace Services
 {
     public class TestService : ITestService
     {
-        private readonly ITestRepository _testsRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IQuestionService _questionService;
+        private readonly IAnswerService _answerService;
+        private readonly ITestRepository _testsRepository;
 
-        public TestService(ITestRepository testsRepository, IUnitOfWork unitOfWork)
+        public TestService(ITestRepository testsRepository, IUnitOfWork unitOfWork, IQuestionService questionService, IAnswerService answerService)
         {
-            _testsRepository = testsRepository;
             _unitOfWork = unitOfWork;
+            _questionService = questionService;
+            _answerService = answerService;
+            _testsRepository = testsRepository;
         }
 
         public Task<Test> Get(Guid id)
@@ -75,6 +80,50 @@ namespace Services
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public async Task<Guid> ImportTest(TestImportDto testImportDto)
+        {
+            var test = new Test
+            {
+                Id = Guid.NewGuid(),
+                Name = testImportDto.Name,
+                Description = testImportDto.Description,
+                Language = testImportDto.Language
+            };
+
+            await Create(test);
+
+
+            foreach (var question in testImportDto.Questions)
+            {
+                var questionEntity = new Question
+                {
+                    Id = Guid.NewGuid(),
+                    TestId = test.Id,
+                    Name = question.Name,
+                    Text = question.Text,
+                    Description = question.Description,
+                    AfterSubmitFeedback = question.AfterSubmitFeedback
+                };
+
+                await _questionService.Create(questionEntity);
+
+                foreach (var answer in question.Answers)
+                {
+                    var answerEntity = new Answer
+                    {
+                        Id = Guid.NewGuid(),
+                        QuestionId = questionEntity.Id,
+                        Text = answer.Text,
+                        IsCorrect = answer.IsCorrect
+                    };
+
+                    await _answerService.Create(answerEntity);
+                }
+            }
+
+            return test.Id;
         }
     }
 }
