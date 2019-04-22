@@ -5,6 +5,7 @@ using API.Resources.Requests;
 using API.Resources.Responses;
 using AutoMapper;
 using Entities;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
 
@@ -44,12 +45,7 @@ namespace API.Controllers
         {
             var test = _mapper.Map<TestRequest, Test>(testRequest);
             await _testService.Create(test);
-
-            var actionResult = await Get(test.Id);
-            var okObjectResult = actionResult as OkObjectResult;
-            var testResponse = okObjectResult?.Value as TestResponse;
-
-            return CreatedAtAction(nameof(Get), new {id = test.Id}, testResponse);
+            return await GetCreatedResult(test.Id);
         }
 
         [HttpPut("{id}")]
@@ -67,6 +63,24 @@ namespace API.Controllers
         {
             await _testService.Delete(id);
             return Ok();
+        }
+
+        [HttpPost("import")]
+        public async Task<IActionResult> ImportTest([FromBody] ImportTestRequest importTestRequest)
+        {
+            var testImportDto = _mapper.Map<ImportTestRequest, TestImportDto>(importTestRequest);
+            var testId = await _testService.ImportTest(testImportDto);
+            var result = await GetCreatedResult(testId);
+            return result;
+        }
+
+        private async Task<CreatedAtActionResult> GetCreatedResult(Guid id)
+        {
+            var actionResult = await Get(id);
+            var okObjectResult = actionResult as OkObjectResult;
+            var testResponse = okObjectResult?.Value as TestResponse;
+
+            return CreatedAtAction(nameof(Get), new {id}, testResponse);
         }
     }
 }

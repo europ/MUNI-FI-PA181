@@ -2,6 +2,7 @@ using API.Resources.Requests;
 using API.Resources.Responses;
 using AutoMapper;
 using Entities;
+using Entities.DTOs;
 
 namespace API.Mapping
 {
@@ -23,6 +24,8 @@ namespace API.Mapping
             CreateMap<Answer, AnswerRequest>();
             CreateMap<AnswerRequest, Answer>();
             CreateMap<AnswerResponse, Answer>();
+
+            CreateMap<ImportTestRequest, TestImportDto>();
         }
     }
 }
