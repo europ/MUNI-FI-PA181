@@ -5,7 +5,7 @@
 
   .card {
     margin-bottom: 1em;
-    cursor: pointer;
+    cursor: pointer !important;
     background: $color-white-dark;
 
     &:hover {

@@ -16,7 +16,7 @@ const Tests = ({ tests, history, texts, showLoader, loadTests }) => (
       <Card
         {...{
           key,
-          onClick: () => history.push(`/tests/${name}/1`),
+          onClick: () => history.push(`/tests/${id}/1`),
           className: "card",
           content: (
             <CardContent
@@ -45,7 +45,7 @@ const Tests = ({ tests, history, texts, showLoader, loadTests }) => (
                     {name}
                   </h2>
                   <p {...{ className: "margin-none" }}>
-                    {texts.NUMBER_OF_QUESTIONS}: {get(questions, "length", 0)}
+                    {texts.NUMBER_OF_QUESTIONS}: <strong>{get(questions, "length", 0)}</strong>
                   </p>
                 </div>
               </div>

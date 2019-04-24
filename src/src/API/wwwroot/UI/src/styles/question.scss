@@ -11,6 +11,7 @@
   .top {
     width: 100%;
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     .main {
       display: flex;
@@ -26,14 +27,16 @@
       align-items: center;
       justify-content: center;
       width: 100%;
+      border-bottom: 1px solid $color-grey-light;
+
+      & > div {
+        border-top: 1px solid $color-grey-light;
+        padding-top: 1em;
+        width: 100%;
+      }
 
       .correct {
         min-width: 12em;
-        margin-left: 1em;
-      }
-
-      .description {
-        margin-left: 1em;
       }
     }
   }
@@ -126,9 +129,24 @@
     }
     .top {
       .info {
+        border-top: 1px solid $color-grey-light;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
+
+        & > div {
+          padding-left: 0.5em;
+          padding-right: 0.5em;
+          width: calc(50% - 1em);
+          border-top: none;
+        }
+
+        .description {
+          border-top: 1px solid $color-grey-light;
+          padding: 1em 0 0;
+          width: 100%;
+        }
       }
     }
     &-row {
@@ -153,12 +171,16 @@
       }
 
       .info {
+        border: 0;
+        padding-top: 0;
         flex-direction: column;
         justify-content: flex-start;
         width: 30%;
 
-        .description {
-          margin-left: 0;
+        .top-divider {
+          width: 100%;
+          border-top: 1px solid $color-grey-light;
+          padding-top: 1em;
         }
       }
     }

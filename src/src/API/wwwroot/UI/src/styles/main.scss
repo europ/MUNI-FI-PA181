@@ -107,3 +107,28 @@ a {
     }
   }
 }
+
+/* LINEAR PROGRESS */
+
+.linear-progress {
+  &.above90 {
+    & > div {
+      background-color: $color-green;
+    }
+  }
+  &.above70 {
+    & > div {
+      background-color: $color-yellow;
+    }
+  }
+  &.above50 {
+    & > div {
+      background-color: $color-orange;
+    }
+  }
+  &.below50 {
+    & > div {
+      background-color: $color-red;
+    }
+  }
+}

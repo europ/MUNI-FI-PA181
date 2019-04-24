@@ -1,0 +1,70 @@
+[
+  {
+    "text": "Je to správně?",
+    "description": "Popis otázky.",
+    "afterSubmitFeedback": "Zobrazí se po vyhodnocení.",
+    "answers": [
+      {
+        "text": "Ano",
+        "isCorrect": true
+      },
+      {
+        "text": "Ne",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "text": "Je slunce modré?",
+    "description": "Popis otázky.",
+    "afterSubmitFeedback": "Zobrazí se po vyhodnocení.",
+    "answers": [
+      {
+        "text": "Ano",
+        "isCorrect": false
+      },
+      {
+        "text": "Spíše zelené",
+        "isCorrect": false
+      },
+      {
+        "text": "Ne",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "text": "Ano nebo ne?",
+    "description": "Popis otázky.",
+    "afterSubmitFeedback": "Zobrazí se po vyhodnocení.",
+    "answers": [
+      {
+        "text": "Ano",
+        "isCorrect": true
+      },
+      {
+        "text": "Ne",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "text": "Druhá je správně",
+    "description": "Popis otázky.",
+    "afterSubmitFeedback": "Zobrazí se po vyhodnocení.",
+    "answers": [
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "Druhá",
+        "isCorrect": true
+      }
+    ]
+  }
+]

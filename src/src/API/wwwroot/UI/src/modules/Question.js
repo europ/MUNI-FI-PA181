@@ -13,11 +13,13 @@ import CardContent from "@material-ui/core/CardContent";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 import { Card, Button, DropDown, Input } from "../components";
-import { millisecondsToString } from "../utils";
+import { withLoader } from "../hoc";
+import { getTest } from "../actions";
+import { millisecondsToString, shuffle } from "../utils";
 
 const Question = ({
   history,
-  testName,
+  testId,
   texts,
   questionNumber,
   count,
@@ -33,9 +35,12 @@ const Question = ({
   setStatisticsHidden,
   infoHidden,
   setInfoHidden,
-  resetTimer
+  resetTimer,
+  test
 }) =>
-  question ? (
+  !test ? (
+    <div />
+  ) : question ? (
     <div {...{ className: "question" }}>
       <div {...{ className: "top" }}>
         <div
@@ -68,7 +73,7 @@ const Question = ({
 
                       e.target.value = newValue;
 
-                      history.push(`/tests/${testName}/${newValue}`);
+                      history.push(`/tests/${testId}/${newValue}`);
                     }
                   }
                 }}
@@ -101,13 +106,13 @@ const Question = ({
             </div>
           </div>
           <div {...{ className: "flex-col-centered width-full" }}>
-            {map(question.answers, ({ text, chosen, correct }, key) => (
+            {map(question.answers, ({ text, chosen, isCorrect }, key) => (
               <Card
                 {...{
                   key,
                   className: classNames("card", {
-                    correct: evaluated && correct,
-                    incorrect: evaluated && chosen && !correct,
+                    correct: evaluated && isCorrect,
+                    incorrect: evaluated && chosen && !isCorrect,
                     chosen: !evaluated && chosen,
                     evaluated
                   }),
@@ -130,7 +135,7 @@ const Question = ({
                   label: texts.PREV,
                   onClick: () =>
                     history.push(
-                      `/tests/${testName}/${
+                      `/tests/${testId}/${
                         questionNumber <= 1 ? count : questionNumber - 1
                       }`
                     ),
@@ -148,7 +153,7 @@ const Question = ({
                   label: texts.NEXT,
                   onClick: () =>
                     history.push(
-                      `/tests/${testName}/${
+                      `/tests/${testId}/${
                         questionNumber >= count ? 1 : questionNumber + 1
                       }`
                     ),
@@ -177,7 +182,7 @@ const Question = ({
                 <strong {...{ id: "timer" }} />
               </h1>
             </div>
-            <div {...{ className: "margin-bottom correct" }}>
+            <div {...{ className: "margin-bottom correct top-divider" }}>
               <div {...{ className: "flex-centered" }}>
                 <h3 {...{ className: "margin-right-small-only" }}>
                   {texts.CORRECT}:
@@ -192,17 +197,49 @@ const Question = ({
                 {...{
                   variant: "determinate",
                   value: correctAnswersPercent,
-                  style: { marginTop: "0.25em", height: "0.5em" }
+                  className: classNames("linear-progress", {
+                    above90: correctAnswersPercent >= 90,
+                    above70:
+                      correctAnswersPercent >= 70 && correctAnswersPercent < 90,
+                    above50:
+                      correctAnswersPercent >= 50 && correctAnswersPercent < 75,
+                    below50:
+                      correctAnswersPercent > 0 && correctAnswersPercent < 50
+                  }),
+                  style: {
+                    marginTop: "0.25em",
+                    height: "0.5em"
+                  }
                 }}
               />
             </div>
             {question.description && (
-              <div {...{ className: "flex-centered description" }}>
+              <div
+                {...{
+                  className:
+                    "margin-bottom flex-col-centered description top-divider"
+                }}
+              >
                 <p {...{ className: "margin-right-small" }}>
                   {texts.DESCRIPTION}:
                 </p>
-                <p>
+                <p {...{ className: "margin-none" }}>
                   <strong>{question.description}</strong>
+                </p>
+              </div>
+            )}
+            {question.afterSubmitFeedback && evaluated && (
+              <div
+                {...{
+                  className:
+                    "margin-bottom flex-col-centered description top-divider"
+                }}
+              >
+                <p {...{ className: "margin-right-small" }}>
+                  {texts.ADDITIONAL_INFORMATION}:
+                </p>
+                <p {...{ className: "margin-none" }}>
+                  <strong>{question.afterSubmitFeedback}</strong>
                 </p>
               </div>
             )}
@@ -235,35 +272,9 @@ const Question = ({
     </div>
   );
 
-export const sampleTest = {
-  name: "PA181",
-  count: 2,
-  questions: [
-    {
-      text: "Is anybody here?",
-      description:
-        "Více odpovědí může být správně. No a ještě je tu třeba nějaký hodně dlouhý popis vědění lidstva a příhoda z mládí.",
-      answers: [
-        { text: "Yes", correct: true },
-        { text: "No", correct: false },
-        { text: "Maybe", correct: false },
-        { text: "I don't know", correct: true },
-        { text: "Ask someone else", correct: false }
-      ]
-    },
-    {
-      text: "Second question",
-      answers: [
-        { text: "Nothing", correct: true },
-        { text: "Something", correct: true },
-        { text: "Anything", correct: true }
-      ]
-    }
-  ]
-};
-
 export default compose(
   withRouter,
+  withLoader,
   withState("evaluated", "setEvaluated", false),
   withState("statisticsHidden", "setStatisticsHidden", false),
   withState("infoHidden", "setInfoHidden", false),
@@ -274,12 +285,12 @@ export default compose(
   withState("wronglyAnswered", "setWronglyAnswered", []),
   withState("test", "setTest", null),
   withProps(({ match }) => ({
-    testName: match.params.test,
+    testId: match.params.test,
     questionNumber: Number(match.params.question)
   })),
   withProps(({ test, questionNumber }) => ({
     question: get(test, `questions[${questionNumber - 1}]`),
-    count: get(test, "count", 0)
+    count: get(test, "questions.length", 0)
   })),
   withProps(({ question, chosenAnswers, correctlyAnswered, count }) => ({
     question: question
@@ -356,9 +367,9 @@ export default compose(
       if (
         find(
           question.answers,
-          ({ correct, text }) =>
-            (correct && !find(chosenAnswers, chosen => chosen === text)) ||
-            (!correct && find(chosenAnswers, chosen => chosen === text))
+          ({ isCorrect, text }) =>
+            (isCorrect && !find(chosenAnswers, chosen => chosen === text)) ||
+            (!isCorrect && find(chosenAnswers, chosen => chosen === text))
         )
       ) {
         addWronglyAnswered(questionNumber);
@@ -391,10 +402,22 @@ export default compose(
     }
   }),
   lifecycle({
-    componentWillMount() {
-      const { setTest } = this.props;
+    async componentWillMount() {
+      const { setTest, testId, showLoader } = this.props;
 
-      setTest(sampleTest);
+      showLoader();
+
+      const test = await getTest(testId);
+
+      setTest({
+        ...test,
+        questions: map(test.questions, question => ({
+          ...question,
+          answers: shuffle(question.answers)
+        }))
+      });
+
+      showLoader(false);
     },
     componentDidMount() {
       const { setIntervalId, updateTimer, setTimerStartTime } = this.props;

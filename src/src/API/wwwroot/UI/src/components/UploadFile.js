@@ -7,10 +7,15 @@ import { ModalButton, Button, DropZone } from ".";
 const UploadFile = props => <ModalButton {...props} />;
 
 export default compose(
-  withProps(({ closeButtonLabel, dropZoneLabel }) => ({
+  withProps(({ closeButtonLabel, dropZoneLabel, onDrop }) => ({
     content: ({ modalProps: { onClose } }) => (
       <div {...{ className: "upload-file" }}>
-        <DropZone {...{ label: dropZoneLabel, onDrop: onClose }} />
+        <DropZone
+          {...{
+            label: dropZoneLabel,
+            onDrop: file => onDrop(file, onClose)
+          }}
+        />
         <Divider />
         <div {...{ className: "button-row" }}>
           <Button

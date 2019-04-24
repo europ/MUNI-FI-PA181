@@ -3,6 +3,7 @@ import { APP_NAME } from "../../constants";
 export const CZ = {
   ABOUT: "O nás",
   ADD_NEW_TEST: "Přidat novou sadu",
+  ADDITIONAL_INFORMATION: "Doplňující informace",
   APP_DESCRIPTION: "Aplikace pro testování uživatele.",
   APP_NAME,
   AUTHORS: "Autoři",
@@ -14,6 +15,7 @@ export const CZ = {
   DESCRIPTION: "Popis",
   DROP_FILE_HERE:
     "Přetáhněte sem soubor nebo klikněte pro zvolení souboru pro nahrání.",
+  ENTER_VALID_JSON: "Zadejte platný JSON.",
   EVALUATE: "Vyhodnotit",
   HIDE_INFO: "Schovat info",
   HIDE_STATISTICS: "Schovat statistiky",

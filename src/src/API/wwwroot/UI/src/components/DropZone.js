@@ -1,4 +1,6 @@
 import React from "react";
+import { compose, defaultProps, withHandlers } from "recompose";
+import { noop } from "lodash";
 import ReactDropzone from "react-dropzone";
 import CloudUpload from "@material-ui/icons/CloudUpload";
 
@@ -14,4 +16,14 @@ const DropZone = ({ label, ...props }) => (
   </ReactDropzone>
 );
 
-export default DropZone;
+export default compose(
+  defaultProps({ onDrop: noop }),
+  withHandlers({
+    onDrop: ({ onDrop }) => files => {
+      const file = files[0];
+      if (file) {
+        onDrop(file);
+      }
+    }
+  })
+)(DropZone);

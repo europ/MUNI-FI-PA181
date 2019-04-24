@@ -11,7 +11,7 @@ import { withLoader } from "../hoc";
 import { postTest } from "../actions";
 import { validation } from "../utils";
 
-const NewTest = ({ texts, handleSubmit, language }) => (
+const NewTest = ({ texts, handleSubmit, language, change }) => (
   <form {...{ onSubmit: handleSubmit }}>
     <div {...{ className: "new-test" }}>
       <h1>{texts.NEW_TEST}</h1>
@@ -34,12 +34,16 @@ const NewTest = ({ texts, handleSubmit, language }) => (
                 {...{
                   component: FormInput,
                   label: `${texts.TEST_JSON_STRUCTURE} *`,
-                  name: "json",
+                  name: "questions",
                   fullWidth: true,
                   containerClassName: "margin-bottom-very-small",
                   multiline: true,
                   rows: 3,
-                  rowsMax: 10
+                  rowsMax: 10,
+                  validate: [
+                    validation.required[language],
+                    validation.json[language]
+                  ]
                 }}
               />
               <UploadFile
@@ -47,7 +51,15 @@ const NewTest = ({ texts, handleSubmit, language }) => (
                   label: texts.UPLOAD_FILE,
                   closeButtonLabel: texts.CANCEL,
                   dropZoneLabel: texts.DROP_FILE_HERE,
-                  className: "margin-bottom width-full"
+                  className: "margin-bottom width-full",
+                  onDrop: (file, onClose) => {
+                    const reader = new FileReader();
+                    reader.readAsText(file);
+                    reader.onloadend = () => {
+                      change("questions", reader.result);
+                      onClose();
+                    };
+                  }
                 }}
               />
               <Field
@@ -97,9 +109,16 @@ export default compose(
   withRouter,
   withLoader,
   withHandlers({
-    onSubmit: ({ showLoader, history, texts }) => async formData => {
+    onSubmit: ({ showLoader, history, texts }) => async ({
+      questions,
+      ...formData
+    }) => {
       showLoader();
-      const ok = await postTest({ ...formData, language: "cz" });
+      const ok = await postTest({
+        ...formData,
+        questions: JSON.parse(questions),
+        language: "cz"
+      });
       showLoader(false);
       if (ok) {
         history.push("/");

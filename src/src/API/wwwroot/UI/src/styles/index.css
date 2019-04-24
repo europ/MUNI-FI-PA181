@@ -76,6 +76,19 @@ a {
         height: 100px !important;
         width: 100px !important; }
 
+/* LINEAR PROGRESS */
+.linear-progress.above90 > div {
+  background-color: #2ecc40; }
+
+.linear-progress.above70 > div {
+  background-color: #FFDC00; }
+
+.linear-progress.above50 > div {
+  background-color: #FF851B; }
+
+.linear-progress.below50 > div {
+  background-color: #ff4136; }
+
 /* BASIC */
 .flex {
   display: flex; }
@@ -391,6 +404,7 @@ a {
   .question .top {
     width: 100%;
     display: flex;
+    align-items: flex-start;
     flex-direction: column; }
     .question .top .main {
       display: flex;
@@ -403,12 +417,14 @@ a {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100%; }
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.075); }
+      .question .top .info > div {
+        border-top: 1px solid rgba(0, 0, 0, 0.075);
+        padding-top: 1em;
+        width: 100%; }
       .question .top .info .correct {
-        min-width: 12em;
-        margin-left: 1em; }
-      .question .top .info .description {
-        margin-left: 1em; }
+        min-width: 12em; }
   .question .card {
     width: 100%;
     margin-bottom: 1em;
@@ -458,9 +474,20 @@ a {
       flex-direction: row;
       justify-content: space-between; }
   .question .top .info {
+    border-top: 1px solid rgba(0, 0, 0, 0.075);
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between; }
+    .question .top .info > div {
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      width: calc(50% - 1em);
+      border-top: none; }
+    .question .top .info .description {
+      border-top: 1px solid rgba(0, 0, 0, 0.075);
+      padding: 1em 0 0;
+      width: 100%; }
   .question-row {
     flex-direction: row;
     justify-content: space-between; } }
@@ -474,11 +501,15 @@ a {
       .question .top .main.full {
         width: 100%; }
     .question .top .info {
+      border: 0;
+      padding-top: 0;
       flex-direction: column;
       justify-content: flex-start;
       width: 30%; }
-      .question .top .info .description {
-        margin-left: 0; } }
+      .question .top .info .top-divider {
+        width: 100%;
+        border-top: 1px solid rgba(0, 0, 0, 0.075);
+        padding-top: 1em; } }
 
 .new-test {
   width: 600px;
@@ -494,7 +525,7 @@ a {
   padding-bottom: 3em; }
   .tests .card {
     margin-bottom: 1em;
-    cursor: pointer;
+    cursor: pointer !important;
     background: #f9f9f9; }
     .tests .card:hover {
       background-color: rgba(0, 0, 0, 0.075); }

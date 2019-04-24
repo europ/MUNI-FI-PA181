@@ -3,6 +3,7 @@ import { APP_NAME } from "../../constants";
 export const EN = {
   ABOUT: "About",
   ADD_NEW_TEST: "Add new test",
+  ADDITIONAL_INFORMATION: "Additional information",
   APP_DESCRIPTION: "Application for user self-testing.",
   APP_NAME,
   AUTHORS: "Authors",
@@ -13,6 +14,7 @@ export const EN = {
   DELETE_TEST_TEXT: "Are you sure you want to delete chosen test?",
   DESCRIPTION: "Description",
   DROP_FILE_HERE: "Drop file here or click to select file to upload.",
+  ENTER_VALID_JSON: "Enter valid JSON.",
   EVALUATE: "Evaluate",
   HIDE_INFO: "Hide info",
   HIDE_STATISTICS: "Hide statistics",

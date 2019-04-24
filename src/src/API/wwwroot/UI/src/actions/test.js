@@ -4,7 +4,10 @@ const TEST_BASE = "/Tests";
 
 export const getTests = async () => await getByUrl(TEST_BASE);
 
-export const postTest = async test => await postByUrl(TEST_BASE, test);
+export const getTest = async id => await getByUrl(`${TEST_BASE}/${id}`);
+
+export const postTest = async test =>
+  await postByUrl(`${TEST_BASE}/import`, test);
 
 export const deleteTest = async testId =>
   await deleteByUrl(`${TEST_BASE}/${testId}`);
