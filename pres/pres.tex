@@ -8,11 +8,27 @@
   workplace=fi,
 ]{MU}
 
+\graphicspath{{../}}
+
+\newcommand{\TODO}{\textbf{\textcolor{red}{TODO}}} % red bold TODO
+
 \begin{document}
 
-\title[Short Presentation Title]{Full Presentation Title}
-\subtitle[Short Presentation Subtitle]{Full Presentation Subtitle}
-\author[J.\,Doe]{Jane Doe \\ personal-id@mail.muni.cz}
+\title[PA181]{PA181}
+\subtitle[Term Project]{Term Project}
+
+\author[A.\,Tóth, J.\,Ondruch, J.\,Čechák, T.\,Pavlík, V.\,Stehlík]{
+  \begin{scriptsize}
+    \begin{tabular}{r@{\hspace{2mm}}l}
+      Adrián Tóth    & {\normalfont 491322@mail.muni.cz}\\[1mm]
+      Jiří Čechák    & {\normalfont 445717@mail.muni.cz}\\[1mm]
+      Jan Ondruch    & {\normalfont 433341@mail.muni.cz}\\[1mm]
+      Tadeáš Pavlík  & {\normalfont 487555@mail.muni.cz}\\[1mm]
+      Václav Stehlík & {\normalfont 487580@mail.muni.cz}\\[1mm]
+    \end{tabular}
+  \end{scriptsize}
+}
+
 \institute[FI MU]{Faculty of Informatics, Masaryk University}
 \date{\today}
 \subject{Presentation Subject}
@@ -26,92 +42,84 @@
   \tableofcontents
 \end{frame}
 
-\section[Short Section 1 Name]{Full Section 1 Name}
-\subsection[Short Subsection 1 Name]{Full Subsection 1 Name}
+%##############################################################################
 
-\begin{frame}{Frame Title}{Frame Subtitle}
-plain text, \structure{page structure}, \alert{emphasis}
-\begin{itemize}
-  \item a single-line bullet list item
-  \item a bullet list item that is quite long (in order to force a line break),
-    which also contains \alert{emphasized text}
-  \begin{itemize}
-    \item a second-level list item
-    \begin{itemize}
-      \item a third-level list item
-    \end{itemize}
-    \alert{\item an emphasized second-level list item}
-  \end{itemize}
-\end{itemize}
-\begin{enumerate}
-  \item a numbered list item
-  \begin{enumerate}
-    \item a second-level list item containing a math expression
-      \[ E = mc^2 \]
-  \end{enumerate}
-\end{enumerate}
-\end{frame}
+\section[Introduction]{Introduction}
 
-\subsection[Short Subsection 2 Name]{Full Subsection 2 Name}
+  \subsection{About}
 
-\begin{frame}{Text Blocks}
-text above a block
-\begin{block}{Block}
-  text
-\end{block}
-\begin{exampleblock}{Example Block}
-  text
-\end{exampleblock}
-\begin{alertblock}{Emphasized Block}
-  text
-\end{alertblock}
-text below a block\footnote{a footnote with an \url{http://address.edu}}
-\end{frame}
+    \begin{frame}{About}
+      \TODO: about
+    \end{frame}
 
-\begin{frame}{Figures}
-\begin{figure}
-  \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{mubeamer/logo/mubeamer-fi-english-color.eps}
-  \caption{Image}
-\end{figure}
-\end{frame}
+  \subsection{Idea}
 
-\subsection[Short Subsection 3 Name]{Full Subsection 3 Name}
+    \begin{frame}{Idea}
+      \TODO: idea
+    \end{frame}
 
-\begin{frame}{Tables}
-\begin{table}
-  \begin{tabular}{llc}
-    First Name & Surname & Year of Birth \\ \midrule
-    Albert & Einstein & 1879 \\
-    Marie & Curie & 1867 \\
-    Thomas & Edison & 1847 \\
-  \end{tabular}
-  \caption{The great minds of the 19th century}
-\end{table}
-\end{frame}
+\section[Development]{Development}
 
-\makeatletter
-\begin{frame}{Automatic Optical Scaling}
-\begin{center}
-\begin{tabular}{ll}
-\Huge \f@family & \Huge \structure{\f@size pt} \\
-\huge \f@family & \huge \structure{\f@size pt}  \\
-\LARGE \f@family & \LARGE \structure{\f@size pt}  \\
-\Large \f@family & \Large \structure{\f@size pt}  \\
-\large \f@family & \large \structure{\f@size pt}  \\
-\normalsize \f@family & \normalsize \structure{\f@size pt}  \\[-0.95pt]
-\small \f@family & \small \structure{\f@size pt}  \\[-1.95pt]
-\footnotesize \f@family & \footnotesize \structure{\f@size pt} \\[-2.95pt]
-\scriptsize \f@family & \scriptsize \structure{\f@size pt}  \\[-4.95pt]
-\tiny \f@family & \tiny \structure{\f@size pt}
-\end{tabular}
-\end{center}
-\end{frame}
-\makeatother
+  \subsection{Work Division}
+
+    \begin{frame}{Work Division}
+      \TODO: who did what
+    \end{frame}
+
+  \subsection{Used Tools \& Technologies}
+
+    \begin{frame}{Used Tools \& Technologies}
+      \TODO: github, travis CI, ibmcloud, asp.net, react, C\#
+    \end{frame}
+
+  \subsection{Application Initialization}
+
+    \begin{frame}{Application Initialization}
+      \TODO: start, chosen template and architecture
+    \end{frame}
+
+  \subsection{Application Development}
+
+    \begin{frame}{Application Development}
+      \TODO: design and coding
+    \end{frame}
+
+  \subsection{Application Deployment}
+
+    \begin{frame}{Application Deployment}
+      \TODO
+    \end{frame}
+
+\section[Application]{Application}
+
+  \subsection{Examples}
+
+    \begin{frame}{Example 1}
+      \begin{figure}
+        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.jpg}
+        \caption{\TODO}
+      \end{figure}
+    \end{frame}
+
+  \begin{frame}{Example 2}
+      \begin{figure}
+        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.jpg}
+        \caption{\TODO}
+      \end{figure}
+    \end{frame}
+
+  \begin{frame}{Example 3}
+      \begin{figure}
+        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.jpg}
+        \caption{\TODO}
+      \end{figure}
+    \end{frame}
+
+%##############################################################################
 
 \begin{frame}[plain]
-\vfill
-\centerline{Thank you for your attention!}
-\vfill\vfill
+  \vspace{20mm}
+  \centerline{Thank you for your attention!}
 \end{frame}
 
 \end{document}
