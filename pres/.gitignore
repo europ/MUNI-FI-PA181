@@ -1,9 +1,11 @@
 *.aux
-*.log
-*.dvi
-*.ps
 *.bbl
 *.blg
-*.toc
-*.out
+*.dvi
 *.lof
+*.log
+*.nav
+*.out
+*.ps
+*.snm
+*.toc

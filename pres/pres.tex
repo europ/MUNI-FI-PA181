@@ -3,39 +3,45 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{comment}
 \usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{changepage}
 \usetheme[
   workplace=fi,
 ]{MU}
 
 \graphicspath{{../}}
-
+\definecolor{urlcolor}{RGB}{6, 69, 173}
 \newcommand{\TODO}{\textbf{\textcolor{red}{TODO}}} % red bold TODO
 
 \begin{document}
 
+\setbeamertemplate{frametitle}[default][center]
+\setlength\columnsep{10pt}
+
 \title[PA181]{PA181}
 \subtitle[Term Project]{Term Project}
-
 \author[A.\,Tóth, J.\,Ondruch, J.\,Čechák, T.\,Pavlík, V.\,Stehlík]{
   \begin{scriptsize}
     \begin{tabular}{r@{\hspace{2mm}}l}
-      Adrián Tóth    & {\normalfont 491322@mail.muni.cz}\\[1mm]
-      Jiří Čechák    & {\normalfont 445717@mail.muni.cz}\\[1mm]
-      Jan Ondruch    & {\normalfont 433341@mail.muni.cz}\\[1mm]
-      Tadeáš Pavlík  & {\normalfont 487555@mail.muni.cz}\\[1mm]
-      Václav Stehlík & {\normalfont 487580@mail.muni.cz}\\[1mm]
+      Adrián Tóth    & {\normalfont \href{mailto:491322@mail.muni.cz}{\color{urlcolor}{491322@mail.muni.cz}}}\\[1mm]
+      Jiří Čechák    & {\normalfont \href{mailto:445717@mail.muni.cz}{\color{urlcolor}{445717@mail.muni.cz}}}\\[1mm]
+      Jan Ondruch    & {\normalfont \href{mailto:433341@mail.muni.cz}{\color{urlcolor}{433341@mail.muni.cz}}}\\[1mm]
+      Tadeáš Pavlík  & {\normalfont \href{mailto:487555@mail.muni.cz}{\color{urlcolor}{487555@mail.muni.cz}}}\\[1mm]
+      Václav Stehlík & {\normalfont \href{mailto:487580@mail.muni.cz}{\color{urlcolor}{487580@mail.muni.cz}}}\\[1mm]
     \end{tabular}
   \end{scriptsize}
 }
-
 \institute[FI MU]{Faculty of Informatics, Masaryk University}
 \date{\today}
 \subject{Presentation Subject}
 \keywords{the, presentation, keywords}
 
 \begin{frame}[plain]
-  \maketitle
+  \begin{center}
+    \maketitle
+  \end{center}
 \end{frame}
 
 \begin{frame}{Table of Contents}
@@ -49,13 +55,24 @@
   \subsection{About}
 
     \begin{frame}{About}
-      \TODO: about
+      \begin{itemize}
+        \item term project
+        \item team project
+        \item cloud native
+        \item something useful
+      \end{itemize}
     \end{frame}
 
   \subsection{Idea}
 
     \begin{frame}{Idea}
-      \TODO: idea
+      \begin{itemize}
+        \item system for user self-testing
+        \item users are able to test themselves
+        \item users can add new tests
+        \item multilingual
+        \item good for exams preparation
+      \end{itemize}
     \end{frame}
 
 \section[Development]{Development}
@@ -63,54 +80,186 @@
   \subsection{Work Division}
 
     \begin{frame}{Work Division}
-      \TODO: who did what
+      \begin{adjustwidth}{-1mm}{-1mm}
+        \begin{multicols}{3}
+          \begin{itemize}
+            \item Jan Ondruch
+            \begin{itemize}
+              \item specifications
+              \item design
+              \item testing
+            \end{itemize}
+
+            \columnbreak
+
+            \item Jiří Čechák\\[1mm]
+            \begin{itemize}
+              \item design
+              \item frontend
+              \item testing
+              \item bug fixing
+            \end{itemize}
+
+            \columnbreak
+
+            \item Tadeáš Pavlík
+            \begin{itemize}
+              \item analysis
+              \item design
+              \item testing
+            \end{itemize}
+          \end{itemize}
+        \end{multicols}
+      \end{adjustwidth}
+    \end{frame}
+
+    \begin{frame}{Work Division}
+      \setlength{\columnsep}{-20mm}
+      \begin{adjustwidth}{10mm}{-10mm}
+        \begin{multicols}{2}
+          \begin{itemize}
+            \item Adrián Tóth
+            \begin{itemize}
+              \item configuration
+              \item architecture
+              \item deployment
+              \item documentation
+              \item presentation
+            \end{itemize}
+
+            \columnbreak
+
+            \item Václav Stehlík
+            \begin{itemize}
+              \item backend
+              \item interconnection of\\backend \& frontend
+              \item troubleshooting
+              \item bug fixing
+            \end{itemize}
+          \end{itemize}
+        \end{multicols}
+      \end{adjustwidth}
     \end{frame}
 
   \subsection{Used Tools \& Technologies}
 
     \begin{frame}{Used Tools \& Technologies}
-      \TODO: github, travis CI, ibmcloud, asp.net, react, C\#
+      \setlength{\columnsep}{-40mm}
+      \begin{adjustwidth}{12.5mm}{-12.5mm}
+        \begin{multicols}{2}
+          Technologies:
+          \begin{itemize}
+            \item IBM Cloud
+            \item GitHub
+            \item Travis CI
+          \end{itemize}
+
+          \columnbreak
+
+          Tools:
+          \begin{itemize}
+            \item IBM Cloud DevOps Toolchain
+            \item ASP.NET
+            \item React
+            \item Material-UI
+          \end{itemize}
+        \end{multicols}
+      \end{adjustwidth}
     \end{frame}
 
   \subsection{Application Initialization}
 
     \begin{frame}{Application Initialization}
-      \TODO: start, chosen template and architecture
+      \begin{itemize}
+        \item created one private repository
+        \begin{itemize}
+          \item hosted on GitHub
+        \end{itemize}
+        \item inspirited by IBM ASP.NET \textit{'HelloWorld'}
+        \item created project skeleton
+        \begin{itemize}
+          \item \TODO
+        \end{itemize}
+        \item configured deployment
+        \begin{itemize}
+          \item before the development itself
+          \item on a clean \textit{'HelloWorld'} application
+        \end{itemize}
+        \item configured automation pipeline
+        \begin{itemize}
+          \item IBM Cloud DevOps Toolchain
+        \end{itemize}
+      \end{itemize}
     \end{frame}
 
-  \subsection{Application Development}
+  \subsection{Application Implementation}
 
-    \begin{frame}{Application Development}
-      \TODO: design and coding
+    \begin{frame}{Application Implementation}
+      \TODO
     \end{frame}
 
   \subsection{Application Deployment}
-
     \begin{frame}{Application Deployment}
-      \TODO
+      \begin{multicols}{2}
+        Our work looked like this:
+        \begin{itemize}
+          \item Manual
+          \begin{enumerate}
+            \item[1] Change code in a local repository
+            \item[2] Commit changes in the local repository
+            \item[3] Update of the remote repository
+          \end{enumerate}
+          \item Automated
+          \begin{enumerate}
+            \item[4] Test the application
+            \item[5] Build the application from source
+            \item[6] Deploy the built application
+            \item[7] Create a release
+          \end{enumerate}
+        \end{itemize}
+
+        \columnbreak
+
+      \begin{figure}[H]
+        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/continuous_delivery.png}
+        \caption{Continuous Delivery}
+      \end{figure}
+      \end{multicols}
+    \end{frame}
+
+    \begin{frame}{Toolchain}
+      \begin{figure}[H]
+        \includegraphics[width=.75\textwidth,height=.75\textheight,keepaspectratio]{img/toolchain.png}
+        \caption{IBM Cloud DevOps Toolchain}
+      \end{figure}
     \end{frame}
 
 \section[Application]{Application}
 
   \subsection{Examples}
 
+    \begin{frame}{Examples}
+      \vspace{7.5mm}
+      \centerline{The following screenshots illustrate our application.}
+    \end{frame}
+
     \begin{frame}{Example 1}
       \begin{figure}
-        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.jpg}
+        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.png}
         \caption{\TODO}
       \end{figure}
     \end{frame}
 
   \begin{frame}{Example 2}
       \begin{figure}
-        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.jpg}
+        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.png}
         \caption{\TODO}
       \end{figure}
     \end{frame}
 
   \begin{frame}{Example 3}
       \begin{figure}
-        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.jpg}
+        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.png}
         \caption{\TODO}
       \end{figure}
     \end{frame}
