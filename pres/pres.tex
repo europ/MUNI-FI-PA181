@@ -45,7 +45,18 @@
 \end{frame}
 
 \begin{frame}{Table of Contents}
-  \tableofcontents
+  \setlength{\columnsep}{-25mm}
+  \begin{adjustwidth}{10mm}{-10mm}
+    \begin{multicols}{2}
+      \tableofcontents
+
+      \columnbreak
+      \hfill\\[7mm]
+      \begin{figure}[H]
+        \includegraphics[width=.35\textwidth,height=.35\textheight,keepaspectratio]{img/content.pdf}
+      \end{figure}
+    \end{multicols}
+  \end{adjustwidth}
 \end{frame}
 
 %##############################################################################
@@ -55,24 +66,43 @@
   \subsection{About}
 
     \begin{frame}{About}
-      \begin{itemize}
-        \item term project
-        \item team project
-        \item cloud native
-        \item something useful
-      \end{itemize}
+      \setlength{\columnsep}{-125mm}
+      \begin{adjustwidth}{20mm}{-25mm}
+        \begin{multicols}{2}
+          \begin{itemize}
+            \item term project
+            \item team project
+            \item cloud native
+            \item something useful
+          \end{itemize}
+
+          \columnbreak
+
+          \begin{figure}[H]
+            \includegraphics[width=.25\textwidth,height=.25\textheight,keepaspectratio]{img/info.pdf}
+          \end{figure}
+        \end{multicols}
+      \end{adjustwidth}
     \end{frame}
 
   \subsection{Idea}
 
     \begin{frame}{Idea}
-      \begin{itemize}
-        \item system for user self-testing
-        \item users are able to test themselves
-        \item users can add new tests
-        \item multilingual
-        \item good for exams preparation
-      \end{itemize}
+      \begin{multicols}{2}
+        \begin{itemize}
+          \item system for user self-testing
+          \item users are able to test themselves
+          \item users can add new tests
+          \item multilingual
+          \item good for exams preparation
+        \end{itemize}
+
+        \columnbreak
+
+        \begin{figure}[H]
+          \includegraphics[width=.35\textwidth,height=.35\textheight,keepaspectratio]{img/idea.pdf}
+        \end{figure}
+      \end{multicols}
     \end{frame}
 
 \section[Development]{Development}
