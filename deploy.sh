@@ -4,7 +4,7 @@
 # TOKEN - github personal access token - 'repo:status' only
 # REPO - string in format 'RepoOwner/RepoName'
 
-if [[ -z "${TOKEN}" || -z "${REPO}" ]]; then
+if [ -z "${TOKEN}" ] || [ -z "${REPO}" ]; then
   echo -e "\033[1;31mMissing environment properties (\$REPO or \$TOKEN)\!\033[0m"
   exit 1
 fi
