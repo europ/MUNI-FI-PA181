@@ -177,6 +177,7 @@ Everyone from us was in charge of a certain part of the project. The work was di
         \item project deployment
         \item bug fixing
         \item documentation
+        \item presentation
     \end{itemize}
 
     \item Jan Ondruch
@@ -250,7 +251,14 @@ Firstly, we have chosen a stable, reliable and safe platform supporting team pro
 
 \section{Application implementation}
 
-The project was implemented via \textit{ASP.NET} framework using a Model--view--controller as an architectural pattern. The core UI was implemented in JavaScript using React library. This UI was later interconnected with backend. Our application supports an application log too to find easier the fatal failures. Our application was divided into few parts that communicate together and process requests - API, entities, repositories and services. The requests are firstly processed in the API, more precisely endpoint in controller. To process this request, the required actions are delegated to services (the business logic specific for our application is implemented here) that delegates the related subrequests to repository that provides the database communication using wrappers. \TODO
+The project was implemented via \textit{ASP.NET} framework using a Model--view--controller as an architectural pattern. The core UI was implemented in JavaScript using React library. This UI was later interconnected with backend. Our application supports an application log too to find easier the fatal failures. Our application was divided into few parts that communicate together and process requests - API, entities, repositories and services. The requests are firstly processed in the API, more precisely endpoint in controller. To process this request, the required actions are delegated to services (the business logic specific for our application is implemented here) that delegates the related subrequests to repository that provides the database communication using wrappers.
+
+\begin{center}
+    \TODO\\
+    Jirka and Václav - create some sentences here (add some description)\\
+    \textbf{CHECK THE TEXT ABOVE (meaning) IN THIS CHAPTER!}\\
+    \TODO
+\end{center}
 
 \section{Application deployment}
 
@@ -269,11 +277,26 @@ The toolchain providing a continuous delivery service allows us to focus on code
 
 \section{Application instructions}
 
-\TODO: how to use, tutorial, examples
+\begin{center}
+    \TODO\\
+    how to use, tutorial, examples, NO IMAGE! (use references to the Screenshot section)\\
+    \TODO
+\end{center}
 
 \section{Screenshots}
 
-\TODO: images (add it to 'doc/img' folder - vector would be the best or raster with high resolution)
+\begin{center}
+    \TODO\\
+    images (add it to 'img/' folder - vector would be the best or raster with high resolution)\\
+    \TODO
+\end{center}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{img/todo.png}
+    \caption{\TODO}
+    %\label{fig:example}
+\end{figure}
 
 \section{Development issues}
 
