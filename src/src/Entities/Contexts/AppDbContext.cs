@@ -26,7 +26,8 @@ namespace Entities.Contexts
                     FirstName = "No",
                     LastName = "Name",
                     Username = "noname@noemail.com",
-                    Password = "FF83504906991383181BA5B84E9F7554708242B8AD8B6E2CF4029C71994274B6",
+                    Password = "E6ciPrA9iFUaIn91FfS8SgxhTFGHXu4+QpAIGlRbDlw=",
+                    Salt = "91BDAA01E3CC2412580AA61E0F47C4B9",
                     Role = Role.Admin
                 },
                 new User
@@ -35,7 +36,8 @@ namespace Entities.Contexts
                     FirstName = "Václav",
                     LastName = "Stehlík",
                     Username = "vasastehlik@email.cz",
-                    Password = "2FC34D13457629D11C9FC2A4586099B69B0DEA1269564ADCED28B2D2342FD864",
+                    Password = "d2D6gknohWuDlpqBuledV2LXarn50uw26cTEXxvwi7A=",
+                    Salt = "D6D058720A8F18D6B0EC7430B50C67FB",
                     Role = Role.Admin
                 }
             );
