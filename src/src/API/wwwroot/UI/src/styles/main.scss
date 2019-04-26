@@ -35,6 +35,9 @@ a {
   &-center {
     text-align: center;
   }
+  &-transform-none {
+    text-transform: none !important;
+  }
 }
 
 .width {
@@ -130,5 +133,25 @@ a {
     & > div {
       background-color: $color-red;
     }
+  }
+}
+
+/* FORM */
+
+.form {
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-small {
+    width: 300px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

@@ -13,7 +13,7 @@ import { validation } from "../utils";
 
 const NewTest = ({ texts, handleSubmit, language, change }) => (
   <form {...{ onSubmit: handleSubmit }}>
-    <div {...{ className: "new-test" }}>
+    <div {...{ className: "form" }}>
       <h1>{texts.NEW_TEST}</h1>
       <Card
         {...{

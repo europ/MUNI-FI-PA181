@@ -10,10 +10,22 @@ const AppWrapper = ({
   items,
   texts,
   language,
-  changeLanguage
+  changeLanguage,
+  user,
+  updateAppState
 }) => (
   <div>
-    <AppBar {...{ items, setDrawerOpen, texts, language, changeLanguage }} />
+    <AppBar
+      {...{
+        items,
+        setDrawerOpen,
+        texts,
+        language,
+        changeLanguage,
+        user,
+        updateAppState
+      }}
+    />
     <Drawer
       {...{
         open: drawerOpen,

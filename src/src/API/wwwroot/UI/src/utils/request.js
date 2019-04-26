@@ -29,6 +29,19 @@ export const postByUrl = async (url, body, params) => {
   return response.ok;
 };
 
+export const postByUrlWithResponse = async (url, body, params) => {
+  const response = await fetchByUrl(url, {
+    method: "POST",
+    headers: new Headers({
+      "Content-Type": "application/json"
+    }),
+    params,
+    body: JSON.stringify(body)
+  });
+
+  return response.ok ? await response.json() : {};
+};
+
 export const putByUrl = async (url, body, params) => {
   const response = await fetchByUrl(url, {
     method: "PUT",

@@ -13,7 +13,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 
 import { theme } from "./theme";
 import { AppWrapper } from "./components";
-import { SignIn, About, Tests, Question, NewTest } from "./modules";
+import { Login, About, Tests, Question, NewTest } from "./modules";
 import { languages, languagesEnum, textsEnum } from "./enums";
 import { storage } from "./utils";
 
@@ -30,7 +30,7 @@ const App = ({ store, menuItems, componentProps }) => (
                   exact,
                   component
                 })),
-                { path: "/sign-in", component: SignIn },
+                { path: "/login", component: Login },
                 { path: "/tests/:test/:question", component: Question }
               ],
               ({ component: Component, ...route }, key) => (
@@ -53,7 +53,7 @@ const App = ({ store, menuItems, componentProps }) => (
 );
 
 export default compose(
-  withState("appState", "setAppState", { language: languages.CZ }),
+  withState("appState", "setAppState", { language: languages.CZ, user: null }),
   withHandlers({
     updateAppState: ({ appState, setAppState }) => patch =>
       setAppState({ ...appState, ...patch })
@@ -77,14 +77,15 @@ export default compose(
   }),
   withProps(({ appState }) => ({
     texts: textsEnum[appState.language],
-    language: appState.language
+    language: appState.language,
+    user: appState.user
   })),
-  withProps(({ texts, language, updateAppState, changeLanguage }) => ({
+  withProps(({ texts, language, updateAppState, changeLanguage, user }) => ({
     menuItems: [
       { label: texts.TESTS, url: "/", exact: true, component: Tests },
       { label: texts.ADD_NEW_TEST, url: "/new-test", component: NewTest },
       { label: texts.ABOUT, url: "/about", component: About }
     ],
-    componentProps: { texts, language, updateAppState, changeLanguage }
+    componentProps: { texts, language, updateAppState, changeLanguage, user }
   }))
 )(App);

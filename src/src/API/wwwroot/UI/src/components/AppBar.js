@@ -8,8 +8,9 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/icons/Menu";
 
-import { Button, FlagIcon, Modal } from ".";
+import { Button, FlagIcon, Modal, DropDown } from ".";
 import { languages, languagesEnum } from "../enums";
+import { logout } from "../actions";
 
 const AppBarComponent = ({
   history,
@@ -19,7 +20,9 @@ const AppBarComponent = ({
   language,
   modalOpen,
   setModalOpen,
-  changeLanguage
+  changeLanguage,
+  user,
+  updateAppState
 }) => (
   <>
     <AppBar {...{ className: "appbar" }}>
@@ -54,7 +57,34 @@ const AppBarComponent = ({
               ))}
             </div>
           </div>
-          <div>
+          <div {...{ className: "flex-centered" }}>
+            {user ? (
+              <DropDown
+                {...{
+                  color: "inherit",
+                  className: "margin-right text-transform-none",
+                  label: user.username,
+                  items: [
+                    {
+                      label: texts.LOGOUT,
+                      onClick: () => {
+                        logout();
+                        updateAppState({ user: null });
+                      }
+                    }
+                  ]
+                }}
+              />
+            ) : (
+              <Button
+                {...{
+                  color: "inherit",
+                  className: "margin-right",
+                  onClick: () => history.push("/login"),
+                  label: texts.LOGIN
+                }}
+              />
+            )}
             <FlagIcon
               {...{
                 language,
