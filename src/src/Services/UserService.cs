@@ -9,6 +9,7 @@ using Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Repositories.Interfaces;
+using Services.Authentication;
 using Services.Interfaces;
 
 namespace Services
@@ -17,20 +18,22 @@ namespace Services
     {
         private readonly AppSettings _appSettings;
         private readonly IUserRepository _userRepository;
+        private readonly IHash _hash;
 
-        public UserService(IOptions<AppSettings> appSettings, IUserRepository userRepository)
+        public UserService(IOptions<AppSettings> appSettings, IUserRepository userRepository, IHash hash)
         {
             _appSettings = appSettings.Value;
             _userRepository = userRepository;
+            _hash = hash;
         }
 
         public async Task<User> Authenticate(string username, string password)
         {
             var users = await _userRepository.GetAll();
-            var user = users.SingleOrDefault(x => x.Username == username && x.Password == password);
+            var user = users.SingleOrDefault(x => x.Username == username);
 
             // return null if user not found
-            if (user == null)
+            if (user == null || !_hash.Validate(password, user.Salt, user.Password))
                 return null;
 
             // authentication successful so generate jwt token
@@ -49,9 +52,6 @@ namespace Services
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             user.Token = tokenHandler.WriteToken(token);
-
-            // remove password before returning
-            user.Password = null;
 
             return user;
         }

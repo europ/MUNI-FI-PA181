@@ -10,6 +10,8 @@ namespace API.Mapping
     {
         public MappingProfile()
         {
+            CreateMap<User, UserResponse>();
+
             CreateMap<Test, TestResponse>();
             CreateMap<Test, TestRequest>();
             CreateMap<TestRequest, Test>();

@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using Repositories;
 using Repositories.Interfaces;
 using Services;
+using Services.Authentication;
 using Services.Interfaces;
 
 namespace API.Extensions
@@ -17,6 +18,8 @@ namespace API.Extensions
         public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<ILoggerManager, LoggerManager>();
+            services.AddSingleton<IHash, Hash>();
+            services.AddSingleton<ISalt, Salt>();
 
             services.AddScoped<ITestRepository, TestRepository>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
