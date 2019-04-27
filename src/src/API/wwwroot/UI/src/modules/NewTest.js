@@ -2,14 +2,15 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { compose, withHandlers } from "recompose";
 import { reduxForm, Field, SubmissionError } from "redux-form";
-import { map } from "lodash";
+import { map, get } from "lodash";
 import Divider from "@material-ui/core/Divider";
 import CardContent from "@material-ui/core/CardContent";
 
-import { FormInput, Button, UploadFile, Card } from "../components";
+import { FormInput, FormSelect, Button, UploadFile, Card } from "../components";
 import { withLoader } from "../hoc";
 import { postTest } from "../actions";
 import { validation } from "../utils";
+import { languagesEnum } from "../enums";
 
 const NewTest = ({ texts, handleSubmit, language, change }) => (
   <form {...{ onSubmit: handleSubmit }}>
@@ -25,6 +26,19 @@ const NewTest = ({ texts, handleSubmit, language, change }) => (
                   component: FormInput,
                   label: `${texts.NAME} *`,
                   name: "name",
+                  fullWidth: true,
+                  containerClassName: "margin-bottom",
+                  validate: [validation.required[language]]
+                }}
+              />
+              <Field
+                {...{
+                  component: FormSelect,
+                  label: `${texts.LANGUAGE} *`,
+                  name: "language",
+                  items: languagesEnum,
+                  labelFunction: o => get(o, "label"),
+                  valueFunction: o => get(o, "id"),
                   fullWidth: true,
                   containerClassName: "margin-bottom",
                   validate: [validation.required[language]]
@@ -116,8 +130,7 @@ export default compose(
       showLoader();
       const ok = await postTest({
         ...formData,
-        questions: JSON.parse(questions),
-        language: "cz"
+        questions: JSON.parse(questions)
       });
       showLoader(false);
       if (ok) {

@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 import { compose, withState } from "recompose";
 import { map } from "lodash";
 import { withRouter } from "react-router-dom";
@@ -88,6 +89,7 @@ const AppBarComponent = ({
             <FlagIcon
               {...{
                 language,
+                className: "with-hover",
                 onClick: () => setModalOpen(true)
               }}
             />
@@ -106,11 +108,9 @@ const AppBarComponent = ({
                 {...{
                   key,
                   language: id,
-                  className: `big ${
-                    id === languages.CZ || id === languages.SK
-                      ? "with-border"
-                      : ""
-                  }`,
+                  className: classNames("big with-hover", {
+                    "with-border": id === languages.CZ || id === languages.SK
+                  }),
                   onClick: () => {
                     changeLanguage(id);
                     setModalOpen(false);

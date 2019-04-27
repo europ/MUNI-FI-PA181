@@ -3,16 +3,14 @@ import { compose, withState, lifecycle, withHandlers } from "recompose";
 import { withRouter } from "react-router-dom";
 import { map, get } from "lodash";
 import CardContent from "@material-ui/core/CardContent";
-import IconButton from "@material-ui/core/IconButton";
-import Star from "@material-ui/icons/Star";
 
-import { Card, ModalButton, Button } from "../components";
+import { Card, ModalButton, Button, FlagIcon } from "../components";
 import { withLoader } from "../hoc";
 import { getTests, deleteTest } from "../actions";
 
 const Tests = ({ tests, history, texts, showLoader, loadTests }) => (
   <div {...{ className: "tests" }}>
-    {map(tests, ({ id, name, questions, favorite }, key) => (
+    {map(tests, ({ id, name, questions, language }, key) => (
       <Card
         {...{
           key,
@@ -29,9 +27,11 @@ const Tests = ({ tests, history, texts, showLoader, loadTests }) => (
                   className: "card-text"
                 }}
               >
-                <IconButton>
-                  <Star {...{ color: favorite ? "primary" : undefined }} />
-                </IconButton>
+                <FlagIcon
+                  {...{
+                    language
+                  }}
+                />
                 <div
                   {...{
                     className: "flex-col margin-left"
@@ -45,7 +45,8 @@ const Tests = ({ tests, history, texts, showLoader, loadTests }) => (
                     {name}
                   </h2>
                   <p {...{ className: "margin-none" }}>
-                    {texts.NUMBER_OF_QUESTIONS}: <strong>{get(questions, "length", 0)}</strong>
+                    {texts.NUMBER_OF_QUESTIONS}:{" "}
+                    <strong>{get(questions, "length", 0)}</strong>
                   </p>
                 </div>
               </div>

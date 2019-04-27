@@ -92,20 +92,39 @@ a {
     cursor: pointer !important;
     height: 32px !important;
     width: 32px !important;
+
     &:hover {
-      height: 36px !important;
-      width: 36px !important;
+      height: 32px !important;
+      width: 32px !important;
     }
   }
   &.big {
     height: 100px;
     width: 100px;
     & > span {
+      cursor: pointer !important;
       height: 80px !important;
       width: 80px !important;
+
       &:hover {
-        height: 100px !important;
-        width: 100px !important;
+        height: 80px !important;
+        width: 80px !important;
+      }
+    }
+  }
+  &.with-hover {
+    & > span {
+      &:hover {
+        height: 36px !important;
+        width: 36px !important;
+      }
+    }
+    &.big {
+      & > span {
+        &:hover {
+          height: 100px !important;
+          width: 100px !important;
+        }
       }
     }
   }

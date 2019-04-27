@@ -20,6 +20,7 @@ export const EN = {
   HIDE_STATISTICS: "Hide statistics",
   HOME: "Home",
   INCORRECT_USERNAME_OR_PASSWORD: "Incorrect username or password.",
+  LANGUAGE: "Language",
   LICENSE: "License",
   LOGIN: "Login",
   LOGOUT: "Logout",

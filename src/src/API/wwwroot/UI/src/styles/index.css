@@ -67,17 +67,24 @@ a {
     height: 32px !important;
     width: 32px !important; }
     .flag-icon > span:hover {
-      height: 36px !important;
-      width: 36px !important; }
+      height: 32px !important;
+      width: 32px !important; }
   .flag-icon.big {
     height: 100px;
     width: 100px; }
     .flag-icon.big > span {
+      cursor: pointer !important;
       height: 80px !important;
       width: 80px !important; }
       .flag-icon.big > span:hover {
-        height: 100px !important;
-        width: 100px !important; }
+        height: 80px !important;
+        width: 80px !important; }
+  .flag-icon.with-hover > span:hover {
+    height: 36px !important;
+    width: 36px !important; }
+  .flag-icon.with-hover.big > span:hover {
+    height: 100px !important;
+    width: 100px !important; }
 
 /* LINEAR PROGRESS */
 .linear-progress.above90 > div {

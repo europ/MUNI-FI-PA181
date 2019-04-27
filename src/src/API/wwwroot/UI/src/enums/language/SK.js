@@ -21,6 +21,7 @@ export const SK = {
   HIDE_STATISTICS: "Schovať štatistiky",
   HOME: "Domov",
   INCORRECT_USERNAME_OR_PASSWORD: "Nesprávne užívateľské meno alebo heslo.",
+  LANGUAGE: "Jazyk",
   LICENSE: "Licencia",
   LOGIN: "Prihlásiť sa",
   LOGOUT: "Odhlásiť sa",

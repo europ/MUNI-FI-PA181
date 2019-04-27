@@ -21,6 +21,7 @@ export const CZ = {
   HIDE_STATISTICS: "Schovat statistiky",
   HOME: "Domů",
   INCORRECT_USERNAME_OR_PASSWORD: "Nesprávné uživatelské jméno nebo heslo.",
+  LANGUAGE: "Jazyk",
   LICENSE: "Licence",
   LOGIN: "Přihlásit se",
   LOGOUT: "Odhlásit se",

@@ -14,4 +14,5 @@ export { default as Loader } from "./Loader";
 export { default as Menu } from "./Menu";
 export { default as Modal } from "./Modal";
 export { default as ModalButton } from "./ModalButton";
+export { default as Select } from "./Select";
 export { default as UploadFile } from "./UploadFile";
