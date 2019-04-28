@@ -18,6 +18,18 @@ namespace Entities.Contexts
         {
             base.OnModelCreating(builder);
 
+            builder.Entity<Test>()
+                .HasMany(t => t.Questions)
+                .WithOne(q => q.Test)
+                .HasForeignKey(q => q.TestId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<Question>()
+                .HasMany(q => q.Answers)
+                .WithOne(a => a.Question)
+                .HasForeignKey(a => a.QuestionId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             builder.Entity<User>().HasData
             (
                 new User
