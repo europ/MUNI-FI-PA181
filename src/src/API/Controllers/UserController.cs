@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.Resources.Requests;
 using API.Resources.Responses;
@@ -33,6 +35,22 @@ namespace API.Controllers
                 return BadRequest(new {message = "Username or password is incorrect"});
 
             var response = _mapper.Map<User, UserResponse>(user);
+            return Ok(response);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            var user = await _userService.Get(id);
+            var response = _mapper.Map<User, UserResponse>(user);
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var users = await _userService.GetAll();
+            var response = _mapper.Map<IEnumerable<User>, IEnumerable<UserResponse>>(users);
             return Ok(response);
         }
     }
