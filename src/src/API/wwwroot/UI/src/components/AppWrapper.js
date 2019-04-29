@@ -12,7 +12,8 @@ const AppWrapper = ({
   language,
   changeLanguage,
   user,
-  updateAppState
+  updateAppState,
+  loadingUser
 }) => (
   <div>
     <AppBar
@@ -23,7 +24,8 @@ const AppWrapper = ({
         language,
         changeLanguage,
         user,
-        updateAppState
+        updateAppState,
+        loadingUser
       }}
     />
     <Drawer

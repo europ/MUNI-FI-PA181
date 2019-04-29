@@ -3,4 +3,5 @@ export { default as Home } from "./Home";
 export { default as Question } from "./Question";
 export { default as NewTest } from "./NewTest";
 export { default as Login } from "./Login";
+export { default as Help } from "./Help";
 export { default as Tests } from "./Tests";

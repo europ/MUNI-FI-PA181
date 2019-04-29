@@ -15,6 +15,11 @@ code {
     monospace;
 }
 
+.scrollable {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 a {
   color: $color-grey;
 
@@ -40,9 +45,23 @@ a {
   }
 }
 
+.border {
+  &-grey {
+    border: 1px solid $color-grey;
+  }
+  &-radius {
+    border-radius: 1em;
+  }
+}
+
 .width {
   &-full {
     width: 100%;
+  }
+  &-max {
+    &-full {
+      max-width: 100%;
+    }
   }
 }
 

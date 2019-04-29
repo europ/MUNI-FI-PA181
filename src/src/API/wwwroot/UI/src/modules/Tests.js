@@ -8,7 +8,7 @@ import { Card, ModalButton, Button, FlagIcon } from "../components";
 import { withLoader } from "../hoc";
 import { getTests, deleteTest } from "../actions";
 
-const Tests = ({ tests, history, texts, showLoader, loadTests }) => (
+const Tests = ({ tests, history, texts, showLoader, loadTests, user }) => (
   <div {...{ className: "tests" }}>
     {map(tests, ({ id, name, questions, language }, key) => (
       <Card
@@ -56,50 +56,52 @@ const Tests = ({ tests, history, texts, showLoader, loadTests }) => (
                   onClick: e => e.stopPropagation()
                 }}
               >
-                <ModalButton
-                  {...{
-                    label: texts.DELETE,
-                    className: "margin-left",
-                    content: ({ modalProps: { onClose } }) => (
-                      <div {...{ className: "padding" }}>
-                        <h4>{texts.DELETE_TEST_TEXT}</h4>
-                        <div {...{ className: "flex-row-end" }}>
-                          {map(
-                            [
-                              {
-                                label: texts.CANCEL,
-                                onClick: onClose
-                              },
-                              {
-                                label: texts.SUBMIT,
-                                color: "primary",
-                                onClick: async () => {
-                                  showLoader();
-                                  const ok = await deleteTest(id);
-                                  if (ok) {
-                                    onClose();
-                                    await loadTests();
+                {user && (
+                  <ModalButton
+                    {...{
+                      label: texts.DELETE,
+                      className: "margin-left",
+                      content: ({ modalProps: { onClose } }) => (
+                        <div {...{ className: "padding" }}>
+                          <h4>{texts.DELETE_TEST_TEXT}</h4>
+                          <div {...{ className: "flex-row-end" }}>
+                            {map(
+                              [
+                                {
+                                  label: texts.CANCEL,
+                                  onClick: onClose
+                                },
+                                {
+                                  label: texts.SUBMIT,
+                                  color: "primary",
+                                  onClick: async () => {
+                                    showLoader();
+                                    const ok = await deleteTest(id);
+                                    if (ok) {
+                                      onClose();
+                                      await loadTests();
+                                    }
+                                    showLoader(false);
                                   }
-                                  showLoader(false);
                                 }
-                              }
-                            ],
-                            (button, key) => (
-                              <Button
-                                {...{
-                                  key,
-                                  outlined: true,
-                                  className: "margin-left-small",
-                                  ...button
-                                }}
-                              />
-                            )
-                          )}
+                              ],
+                              (button, key) => (
+                                <Button
+                                  {...{
+                                    key,
+                                    outlined: true,
+                                    className: "margin-left-small",
+                                    ...button
+                                  }}
+                                />
+                              )
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    )
-                  }}
-                />
+                      )
+                    }}
+                  />
+                )}
               </div>
             </CardContent>
           )

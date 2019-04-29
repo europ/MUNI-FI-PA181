@@ -1,7 +1,9 @@
 import { get } from "lodash";
-import { postByUrlWithResponse, storage } from "../utils";
+import { getByUrl, postByUrlWithResponse, storage } from "../utils";
 
 const USER_BASE = "/Users";
+
+export const getUser = async id => await getByUrl(`${USER_BASE}/${id}`);
 
 export const login = async formData => {
   const response = await postByUrlWithResponse(

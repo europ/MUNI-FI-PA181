@@ -13,6 +13,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
 
+.scrollable {
+  max-width: 100%;
+  overflow-x: auto; }
+
 a {
   color: rgba(0, 0, 0, 0.54); }
   a:hover {
@@ -30,8 +34,17 @@ a {
 .text-transform-none {
   text-transform: none !important; }
 
+.border-grey {
+  border: 1px solid rgba(0, 0, 0, 0.54); }
+
+.border-radius {
+  border-radius: 1em; }
+
 .width-full {
   width: 100%; }
+
+.width-max-full {
+  max-width: 100%; }
 
 .hidden {
   display: none; }
