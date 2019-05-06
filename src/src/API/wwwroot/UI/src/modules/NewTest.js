@@ -24,7 +24,12 @@ const NewTest = ({ texts, handleSubmit, language, change }) => (
               <Field
                 {...{
                   component: FormInput,
-                  label: `${texts.NAME} *`,
+                  label: (
+                    <span>
+                      {texts.NAME}
+                      <span {...{ className: "color-red" }}> *</span>
+                    </span>
+                  ),
                   name: "name",
                   fullWidth: true,
                   containerClassName: "margin-bottom",
@@ -34,7 +39,12 @@ const NewTest = ({ texts, handleSubmit, language, change }) => (
               <Field
                 {...{
                   component: FormSelect,
-                  label: `${texts.LANGUAGE} *`,
+                  label: (
+                    <span>
+                      {texts.LANGUAGE}
+                      <span {...{ className: "color-red" }}> *</span>
+                    </span>
+                  ),
                   name: "language",
                   items: languagesEnum,
                   labelFunction: o => get(o, "label"),
@@ -47,7 +57,12 @@ const NewTest = ({ texts, handleSubmit, language, change }) => (
               <Field
                 {...{
                   component: FormInput,
-                  label: `${texts.TEST_JSON_STRUCTURE} *`,
+                  label: (
+                    <span>
+                      {texts.TEST_JSON_STRUCTURE}
+                      <span {...{ className: "color-red" }}> *</span>
+                    </span>
+                  ),
                   name: "questions",
                   fullWidth: true,
                   containerClassName: "margin-bottom-very-small",
@@ -92,7 +107,7 @@ const NewTest = ({ texts, handleSubmit, language, change }) => (
               <div
                 {...{ className: "flex-row-space-between margin-top-small" }}
               >
-                <p>{`* ${texts.REQUIRED}`}</p>
+                <p {...{ className: "color-red" }}>* {texts.REQUIRED}</p>
                 <div {...{ className: "flex" }}>
                   {map(
                     [

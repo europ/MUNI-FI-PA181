@@ -258,6 +258,7 @@ const Question = ({
                   key,
                   label,
                   outlined: true,
+                  onClick: () => history.push(`/tests/${testId}/${label}`),
                   className: "margin-right margin-bottom"
                 }}
               />
