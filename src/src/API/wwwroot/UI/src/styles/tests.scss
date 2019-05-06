@@ -1,7 +1,6 @@
 .tests {
   max-width: 800px;
   margin: 0 auto;
-  padding-bottom: 3em;
 
   .card {
     margin-bottom: 1em;
@@ -15,77 +14,42 @@
     &-content {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       overflow: hidden;
 
       .card-text {
         display: flex;
-        justify-content: center;
         align-items: center;
         max-width: 100%;
         overflow: hidden;
       }
     }
 
-    &-actions {
+    &-info {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
+    }
+
+    &-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
       width: 100%;
       overflow: hidden;
-      margin-top: 1em;
     }
-  }
-
-  .floating-button {
-    position: fixed;
-    bottom: 1em;
-    right: 2em;
   }
 }
 
 @media (min-width: $breakpoint-mobile) {
   .tests {
     .card {
-      &-actions {
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-      }
-    }
-  }
-}
-
-@media (min-width: $breakpoint-tablet) {
-  .tests {
-    .card {
       &-content {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-
-        .card-text {
-          max-width: calc(100% - 8em);
+        .card-info {
+          margin-left: calc(36px + 1em);
+          width: calc(100% - 36px - 1em);
+          flex-direction: row;
+          justify-content: space-between;
         }
       }
-
-      &-actions {
-        width: 6em;
-        max-width: 6em;
-        margin: 0;
-        flex-direction: column;
-      }
     }
-  }
-
-  .floating-button {
-    bottom: 2em;
-  }
-}
-
-@media (min-width: $breakpoint-big-desktop) {
-  .tests {
-    padding-bottom: 0;
   }
 }

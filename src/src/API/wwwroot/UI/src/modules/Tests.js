@@ -10,7 +10,7 @@ import { getTests, deleteTest } from "../actions";
 
 const Tests = ({ tests, history, texts, showLoader, loadTests, user }) => (
   <div {...{ className: "tests" }}>
-    {map(tests, ({ id, name, questions, language }, key) => (
+    {map(tests, ({ id, name, questions, language, description }, key) => (
       <Card
         {...{
           key,
@@ -47,6 +47,9 @@ const Tests = ({ tests, history, texts, showLoader, loadTests, user }) => (
                   <p {...{ className: "margin-none" }}>
                     {texts.NUMBER_OF_QUESTIONS}:{" "}
                     <strong>{get(questions, "length", 0)}</strong>
+                  </p>
+                  <p {...{ className: "margin-none" }}>
+                    {texts.DESCRIPTION}: <strong>{description}</strong>
                   </p>
                 </div>
               </div>
