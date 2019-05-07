@@ -12,7 +12,13 @@
 ]{MU}
 
 \graphicspath{{../}}
+
 \definecolor{urlcolor}{RGB}{6, 69, 173}
+\definecolor{imageBorderColor}{RGB}{91, 91, 91}
+
+\fboxsep=0pt
+\fboxrule=1pt
+
 \newcommand{\TODO}{\textbf{\textcolor{red}{TODO}}} % red bold TODO
 
 \begin{document}
@@ -281,24 +287,60 @@
 
     \begin{frame}{Example 1}
       \begin{figure}
-        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.png}
-        \caption{\TODO}
+        \fcolorbox{imageBorderColor}{white}{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/application/example1.png}}
+        \caption{list of available tests}
       \end{figure}
     \end{frame}
 
-  \begin{frame}{Example 2}
+    \begin{frame}{Example 2}
       \begin{figure}
-        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.png}
-        \caption{\TODO}
+        \fcolorbox{imageBorderColor}{white}{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/application/example2.png}}
+        \caption{incorrect answer}
       \end{figure}
     \end{frame}
 
-  \begin{frame}{Example 3}
+    \begin{frame}{Example 3}
       \begin{figure}
-        \includegraphics[width=.5\textwidth,height=.5\textheight,keepaspectratio]{img/todo.png}
-        \caption{\TODO}
+        \fcolorbox{imageBorderColor}{white}{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/application/example3.png}}
+        \caption{correct answer}
       \end{figure}
     \end{frame}
+
+    \begin{frame}{Example 4}
+      \begin{figure}
+        \fcolorbox{imageBorderColor}{white}{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/application/example4.png}}
+        \caption{login}
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{Example 5}
+      \begin{figure}
+        \fcolorbox{imageBorderColor}{white}{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/application/example5.png}}
+        \caption{add a new test}
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{Example 6}
+      \begin{figure}
+        \fcolorbox{imageBorderColor}{white}{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/application/example6.png}}
+        \caption{language selection}
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{Example 7}
+      \begin{figure}
+        \fcolorbox{imageBorderColor}{white}{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/application/example7.png}}
+        \caption{help}
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{Example 8}
+      \begin{figure}
+        \fcolorbox{imageBorderColor}{white}{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/application/example8.png}}
+        \caption{about}
+      \end{figure}
+    \end{frame}
+
 
 %##############################################################################
 
