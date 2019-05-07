@@ -1,0 +1,67 @@
+[
+  {
+    "text": "2 - 2 = ?",
+    "description": "Mathematics - Arithmetic (subtraction)",
+    "afterSubmitFeedback": "Zobrazí se po vyhodnocení.",
+    "answers": [
+      {
+        "text": "0",
+        "isCorrect": true
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "text": "2 + 2 = ?",
+    "description": "Mathematics - Arithmetic (addition)",
+    "afterSubmitFeedback": "Feedback Text",
+    "answers": [
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "9",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "text": "2 * 2 = ?",
+    "description": "Mathematics - Arithmetic (multiplication)",
+    "afterSubmitFeedback": "Feedback Text",
+    "answers": [
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": true
+      }
+    ]
+  }
+]
