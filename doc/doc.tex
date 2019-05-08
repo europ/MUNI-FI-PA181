@@ -254,15 +254,9 @@ Firstly, we have chosen a stable, reliable and safe platform supporting team pro
 
 \section{Application implementation}
 
-The project was implemented via \textit{ASP.NET} framework using a Model--view--controller as an architectural pattern. The core UI was implemented in JavaScript using React library. This UI was later interconnected with backend. Our application supports an application log too to find easier the fatal failures. Our application was divided into few parts that communicate together and process requests - API, entities, repositories and services. The requests are firstly processed in the API, more precisely endpoint in controller. To process this request, the required actions are delegated to services (the business logic specific for our application is implemented here) that delegates the related subrequests to repository that provides the database communication using wrappers.
+The project was implemented via \textit{ASP.NET} framework using a Model--view--controller architectural pattern. The core UI was implemented in JavaScript using React library and Material UI components. This UI is interconnected with backend using our REST API (e.g. the test are passed in JSON format). The application validates the input on the both sides - frontend and backend.\\
 
-\begin{center}
-    \TODO\\
-    Jirka and Václav - create some sentences here (add some description)\\
-    \textbf{CHECK THE TEXT ABOVE (meaning) IN THIS CHAPTER!}\\
-    %JIRKA: Frontend je implementován za použití Javascript frameworku ReactJS s využitím komponent Material UI. UI klade důraz na jednoduchost, přehlednost a responzivitu, aby bylo možné aplikaci snadno využívat i na mobilních telefonech. Frontend komunikuje s backendem přes REST api, kde struktura testových otázek je zasílána ve formátu json. Na frontendu i backendu probíhá validace vstupních dat. K dispozici je přihlášení pro administrátora, který má možnost mazat vložené testy.
-    \TODO
-\end{center}
+Our application was divided into parts that communicate together and process requests - API, entities, repositories and services. The requests are firstly processed in the API, more precisely endpoint in controller. To process this request, the required actions are delegated to services (the business logic specific for our application) that delegates the related subrequests to repository that provides the database communication using wrappers. The application supports also an application log too, which makes the fatal failures easier to find.
 
 \section{Application deployment}
 

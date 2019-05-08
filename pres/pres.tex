@@ -232,12 +232,36 @@
   \subsection{Application Implementation}
 
     \begin{frame}{Application Implementation}
-      \begin{center}
-        \TODO\\
-        Jirka and Václav - create few notes here\\
-        inspiration - see chapter \textit{'Application Implementation'} in doc\\
-        \TODO
-      \end{center}
+       \setlength{\columnsep}{-10mm}
+      \begin{adjustwidth}{7mm}{-8mm}
+        \begin{multicols}{2}
+          Frontend:
+          \begin{itemize}
+            \item Material UI components
+            \item connected to the API
+            \item supporting any mode
+            \begin{itemize}
+              \item phone
+              \item tablet
+              \item desktop
+            \end{itemize}
+          \end{itemize}
+
+          \columnbreak
+
+          Backend:
+          \begin{itemize}
+            \item Model--View--Controller
+            \item multitier architecture
+            \begin{itemize}
+              \item API
+              \item entities
+              \item repositories
+              \item services
+            \end{itemize}
+          \end{itemize}
+        \end{multicols}
+      \end{adjustwidth}
     \end{frame}
 
   \subsection{Application Deployment}
