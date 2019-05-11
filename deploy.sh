@@ -10,6 +10,9 @@
 # USAGE: error "message"
 error() {
   echo -e "\033[1;31m${1}\033[0m"
+  create_status "failure"
+  COMMENT_BODY=":x: IBM Cloud [toolchain](https://console.bluemix.net/devops/toolchains/0d122658-46e5-4981-a505-de8c1bcf2060?env_id=ibm%3Ayp%3Aeu-de 'PA181'): [Delivery Pipeline](https://console.bluemix.net/devops/pipelines/34a6147f-ccb6-4a7e-9046-fa62588bd17f?env_id=ibm%3Ayp%3Aeu-de 'PA181') **failed** to deploy [MUNI-FI-PA181](https://github.com/europ/MUNI-FI-PA181/releases/tag/deploy-ibm-yp-eu-de-PA181.org-PA181.space-20190419-211402 'deploy-ibm-yp-eu-de-PA181.org-PA181.space-20190419-211402') to [PA181.space](https://console.bluemix.net/apps/e12bc2b1-2120-4f57-b8e6-8351beb45553?env_id=ibm:yp:eu-de 'ibm:yp:eu-de:PA181.org:PA181.space') :heavy_exclamation_mark:\n${1}"
+  commit_comment "${COMMENT_BODY}"
   exit 1
 }
 
@@ -49,8 +52,7 @@ commit_comment() {
 [[ -z "${REPO}" ]] && error "Missing environment property 'REPO'\!"
 [[ -z "${GIT_COMMIT}" ]] && error "Missing environment property 'GIT_COMMIT'\!"
 
-
-cd src # directory including source files
+cd src || error "Source directory not found\!"
 
 create_status "pending"
 
