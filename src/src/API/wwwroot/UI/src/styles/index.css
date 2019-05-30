@@ -48,6 +48,8 @@ a {
 
 .hidden {
   display: none; }
+  .hidden-important {
+    display: none !important; }
 
 .big-desktop-only {
   display: none !important; }

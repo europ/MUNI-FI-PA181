@@ -1,6 +1,6 @@
 import { getByUrl, postByUrl, deleteByUrl } from "../utils";
 
-const TEST_BASE = "/Tests";
+const TEST_BASE = "/api/Tests";
 
 export const getTests = async () => await getByUrl(TEST_BASE);
 

@@ -1,7 +1,7 @@
 import { get } from "lodash";
 import { getByUrl, postByUrlWithResponse, storage } from "../utils";
 
-const USER_BASE = "/Users";
+const USER_BASE = "/api/Users";
 
 export const getUser = async id => await getByUrl(`${USER_BASE}/${id}`);
 

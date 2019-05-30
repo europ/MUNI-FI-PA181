@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import { compose, withState } from "recompose";
-import { map } from "lodash";
+import { map, get, isEmpty } from "lodash";
 import { withRouter } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -61,41 +61,44 @@ const AppBarComponent = ({
             </div>
           </div>
           <div {...{ className: "flex-centered" }}>
-            {loadingUser ? (
-              <CircularProgress
-                {...{
-                  size: 24,
-                  color: "secondary",
-                  className: "margin-right"
-                }}
-              />
-            ) : user ? (
-              <DropDown
-                {...{
-                  color: "inherit",
-                  className: "margin-right text-transform-none",
-                  label: user.username,
-                  items: [
-                    {
-                      label: texts.LOGOUT,
-                      onClick: () => {
-                        logout();
-                        updateAppState({ user: null });
-                      }
+            {console.log(user)}
+            <CircularProgress
+              {...{
+                size: 24,
+                color: "secondary",
+                className: classNames("margin-right", {
+                  "hidden-important": !loadingUser
+                })
+              }}
+            />
+            <DropDown
+              {...{
+                color: "inherit",
+                className: classNames("margin-right text-transform-none", {
+                  "hidden-important": isEmpty(user) || loadingUser
+                }),
+                label: get(user, "username", "Neznámý uživatel"),
+                items: [
+                  {
+                    label: texts.LOGOUT,
+                    onClick: () => {
+                      logout();
+                      updateAppState({ user: null });
                     }
-                  ]
-                }}
-              />
-            ) : (
-              <Button
-                {...{
-                  color: "inherit",
-                  className: "margin-right",
-                  onClick: () => history.push("/login"),
-                  label: texts.LOGIN
-                }}
-              />
-            )}
+                  }
+                ]
+              }}
+            />
+            <Button
+              {...{
+                color: "inherit",
+                className: classNames("margin-right", {
+                  "hidden-important": !isEmpty(user) || loadingUser
+                }),
+                onClick: () => history.push("/login"),
+                label: texts.LOGIN
+              }}
+            />
             <FlagIcon
               {...{
                 language,

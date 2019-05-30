@@ -28,7 +28,7 @@
     "prettier": "1.17.0",
     "react-scripts": "2.1.8"
   },
-  "proxy": "https://pa181.eu-de.mybluemix.net/api",
+  "proxy": "https://pa181.eu-de.mybluemix.net",
   "scripts": {
     "build-css": "node-sass-chokidar src/styles/index.scss -o src/styles/",
     "watch-css": "npm run build-css && node-sass-chokidar src/styles/ -o src/styles/ --watch --recursive",
