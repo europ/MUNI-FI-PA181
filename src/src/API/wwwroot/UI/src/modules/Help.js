@@ -115,7 +115,7 @@ const Help = ({ texts }) => (
               text: (
                 <span>
                   {`${texts.ANSWERS_DESCRIPTION} `}
-                  <strong>isCorrect</strong>: true
+                  <strong>isCorrect</strong>: true)
                 </span>
               ),
               content: (
