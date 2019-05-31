@@ -111,7 +111,6 @@ const NewTest = ({ texts, handleSubmit, language, change }) => (
                 <div {...{ className: "flex" }}>
                   {map(
                     [
-                      { label: texts.CANCEL, outlined: true },
                       {
                         label: texts.SUBMIT,
                         raised: true,
