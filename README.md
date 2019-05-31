@@ -8,4 +8,4 @@
 * [documentation](https://github.com/europ/MUNI-FI-PA181/blob/master/doc/doc.pdf)
 * [presentation](https://github.com/europ/MUNI-FI-PA181/blob/master/pres/pres.pdf)
 * [source code](https://github.com/europ/MUNI-FI-PA181/blob/master/src)
-* [setup](https://github.com/europ/MUNI-FI-PA181/wiki/Setup)
+* [setup, configuration, etc.](https://github.com/europ/MUNI-FI-PA181/wiki)
