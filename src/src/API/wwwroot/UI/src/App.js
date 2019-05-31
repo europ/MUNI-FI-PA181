@@ -8,13 +8,21 @@ import {
   withProps,
   lifecycle
 } from "recompose";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { map, find, isEmpty, get } from "lodash";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 
 import { theme } from "./theme";
 import { AppWrapper } from "./components";
-import { Login, About, Tests, Question, NewTest, Help } from "./modules";
+import {
+  Login,
+  About,
+  Tests,
+  Question,
+  NewTest,
+  Help,
+  NotFound
+} from "./modules";
 import { languages, languagesEnum, textsEnum } from "./enums";
 import { storage } from "./utils";
 import { getUser } from "./actions";
@@ -33,7 +41,8 @@ const App = ({ store, menuItems, componentProps }) => (
                   component
                 })),
                 { path: "/login", component: Login },
-                { path: "/tests/:test/:question", component: Question }
+                { path: "/tests/:test/:question", component: Question },
+                { path: "/not-found", component: NotFound }
               ],
               ({ component: Component, ...route }, key) => (
                 <Route
@@ -47,6 +56,7 @@ const App = ({ store, menuItems, componentProps }) => (
                 />
               )
             )}
+            <Redirect {...{ to: "/not-found" }} />
           </Switch>
         </AppWrapper>
       </BrowserRouter>
