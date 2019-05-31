@@ -1,8 +1,8 @@
 [
   {
     "text": "2 - 2 = ?",
-    "description": "Mathematics - Arithmetic (subtraction)",
-    "afterSubmitFeedback": "Zobrazí se po vyhodnocení.",
+    "description": "Subtraction",
+    "afterSubmitFeedback": "Easy or not?",
     "answers": [
       {
         "text": "0",
@@ -18,10 +18,12 @@
       }
     ]
   },
+
+
   {
     "text": "2 + 2 = ?",
-    "description": "Mathematics - Arithmetic (addition)",
-    "afterSubmitFeedback": "Feedback Text",
+    "description": "Addition",
+    "afterSubmitFeedback": "So funny.",
     "answers": [
       {
         "text": "1",
@@ -41,10 +43,12 @@
       }
     ]
   },
+
+
   {
     "text": "2 * 2 = ?",
-    "description": "Mathematics - Arithmetic (multiplication)",
-    "afterSubmitFeedback": "Feedback Text",
+    "description": "Multiplication",
+    "afterSubmitFeedback": "Difficult?",
     "answers": [
       {
         "text": "1",

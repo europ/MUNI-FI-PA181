@@ -1,0 +1,71 @@
+[
+  {
+    "text": "Which one is the core of the computer?",
+    "description": "Chip",
+    "afterSubmitFeedback": "Easy to anybody.",
+    "answers": [
+      {
+        "text": "CPU (Central Processing Unit)",
+        "isCorrect": true
+      },
+      {
+        "text": "USB (Universal Serial Bus)",
+        "isCorrect": false
+      },
+      {
+        "text": "RAM (Random Access Memory)",
+        "isCorrect": false
+      }
+    ]
+  },
+
+
+  {
+    "text": "Where do we store persistent informations on a local computer?",
+    "description": "Data storage",
+    "afterSubmitFeedback": "Unbelievably easy.",
+    "answers": [
+      {
+        "text": "Processor",
+        "isCorrect": false
+      },
+      {
+        "text": "Disk",
+        "isCorrect": true
+      },
+      {
+        "text": "Motherboard",
+        "isCorrect": false
+      },
+      {
+        "text": "Keyboard",
+        "isCorrect": false
+      }
+    ]
+  },
+
+
+  {
+    "text": "Whats is the term for the computer network address?",
+    "description": "Networking",
+    "afterSubmitFeedback": "An advanced one.",
+    "answers": [
+      {
+        "text": "ID address",
+        "isCorrect": false
+      },
+      {
+        "text": "PI address",
+        "isCorrect": false
+      },
+      {
+        "text": "IT address",
+        "isCorrect": false
+      },
+      {
+        "text": "IP address",
+        "isCorrect": true
+      }
+    ]
+  }
+]

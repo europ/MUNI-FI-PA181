@@ -18,6 +18,8 @@
       }
     ]
   },
+
+
   {
     "text": "Where are pyramids?",
     "description": "Monuments",
@@ -41,10 +43,12 @@
       }
     ]
   },
+
+
   {
     "text": "Where does the lion live?",
     "description": "Animals",
-    "afterSubmitFeedback": "Feedback Text",
+    "afterSubmitFeedback": "This was a casual one.",
     "answers": [
       {
         "text": "Europe",

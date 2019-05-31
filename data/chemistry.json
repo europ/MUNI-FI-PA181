@@ -1,0 +1,75 @@
+[
+  {
+    "text": "Which element is radioactive?",
+    "description": "Elements",
+    "afterSubmitFeedback": "Be aware of them.",
+    "answers": [
+      {
+        "text": "Uranium",
+        "isCorrect": true
+      },
+      {
+        "text": "Oxygen",
+        "isCorrect": false
+      },
+      {
+        "text": "Plutonium",
+        "isCorrect": true
+      },
+      {
+        "text": "Mercury",
+        "isCorrect": false
+      }
+    ]
+  },
+
+
+  {
+    "text": "What is dihydrogen oxid?",
+    "description": "Chemical compound",
+    "afterSubmitFeedback": "So smart.",
+    "answers": [
+      {
+        "text": "Polyvinyl chloride",
+        "isCorrect": false
+      },
+      {
+        "text": "Methane",
+        "isCorrect": false
+      },
+      {
+        "text": "Bronze",
+        "isCorrect": false
+      },
+      {
+        "text": "Water",
+        "isCorrect": true
+      }
+    ]
+  },
+
+
+  {
+    "text": "Which element is fundamental for the iron industry?",
+    "description": "Metal",
+    "afterSubmitFeedback": "... and also for Iron Man!!!",
+    "answers": [
+      {
+        "text": "Borum",
+        "isCorrect": false
+      },
+      {
+        "text": "Ferrum",
+        "isCorrect": true
+      },
+      {
+        "text": "Helium",
+        "isCorrect": false
+      },
+      {
+        "text": "Carboneum",
+        "isCorrect": true
+      }
+    ]
+  }
+]
