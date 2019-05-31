@@ -1,0 +1,67 @@
+[
+  {
+    "text": "Which one is the world's biggest ocean?",
+    "description": "Oceans",
+    "afterSubmitFeedback": "You should know it.",
+    "answers": [
+      {
+        "text": "Pacific Ocean",
+        "isCorrect": true
+      },
+      {
+        "text": "Atlantic Ocean",
+        "isCorrect": false
+      },
+      {
+        "text": "Indian Ocean",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "text": "Where are pyramids?",
+    "description": "Monuments",
+    "afterSubmitFeedback": "Easy for you.",
+    "answers": [
+      {
+        "text": "Germany",
+        "isCorrect": false
+      },
+      {
+        "text": "Hungary",
+        "isCorrect": false
+      },
+      {
+        "text": "Slovakia",
+        "isCorrect": false
+      },
+      {
+        "text": "Egypt",
+        "isCorrect": true
+      }
+    ]
+  },
+  {
+    "text": "Where does the lion live?",
+    "description": "Animals",
+    "afterSubmitFeedback": "Feedback Text",
+    "answers": [
+      {
+        "text": "Europe",
+        "isCorrect": false
+      },
+      {
+        "text": "Africa",
+        "isCorrect": true
+      },
+      {
+        "text": "Antarctica",
+        "isCorrect": false
+      },
+      {
+        "text": "Arctic",
+        "isCorrect": false
+      }
+    ]
+  }
+]
