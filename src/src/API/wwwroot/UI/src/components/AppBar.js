@@ -61,7 +61,6 @@ const AppBarComponent = ({
             </div>
           </div>
           <div {...{ className: "flex-centered" }}>
-            {console.log(user)}
             <CircularProgress
               {...{
                 size: 24,

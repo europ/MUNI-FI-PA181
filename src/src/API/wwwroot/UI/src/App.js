@@ -56,7 +56,9 @@ const App = ({ store, menuItems, componentProps }) => (
 
 export default compose(
   withState("appState", "setAppState", {
-    language: languages.CZ,
+    language: find(languagesEnum, ({ id }) => id === storage.get("language"))
+      ? storage.get("language")
+      : languages.CZ,
     user: null,
     loadingUser: false
   }),
@@ -72,17 +74,11 @@ export default compose(
   }),
   lifecycle({
     async componentWillMount() {
-      const { changeLanguage, updateAppState } = this.props;
-
-      const language = storage.get("language");
-
-      if (find(languagesEnum, ({ id }) => id === language)) {
-        changeLanguage(language);
-      }
-
-      const token = storage.get("token");
+      const { updateAppState } = this.props;
 
       updateAppState({ loadingUser: true });
+
+      const token = storage.get("token");
 
       if (!isEmpty(token) && token !== "null" && token !== "undefined") {
         const tokenUser = jwt_decode(token);
@@ -96,10 +92,8 @@ export default compose(
     }
   }),
   withProps(({ appState }) => ({
-    texts: textsEnum[appState.language],
-    language: appState.language,
-    user: appState.user,
-    loadingUser: appState.loadingUser
+    texts: get(textsEnum, appState.language, textsEnum.CZ),
+    ...appState
   })),
   withProps(
     ({
