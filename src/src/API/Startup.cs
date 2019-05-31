@@ -31,6 +31,7 @@ namespace API
         {
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "wwwroot/UI/build"; });
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info {Title = "My API", Version = "v1"}); });
             services.AddAutoMapper();
             services.ConfigureAuthentication(Configuration);
@@ -69,7 +70,19 @@ namespace API
                     List<string> {"index.html"}
             });
             app.UseStaticFiles();
-            app.UseMvc();
+            app.UseSpaStaticFiles();
+
+            app.MapWhen(x => x.Request.Path.Value.StartsWith("/api"), builder =>
+            {
+                builder.UseMvc(routes =>
+                {
+                    routes.MapSpaFallbackRoute(
+                        "spa-fallback",
+                        new {controller = "Home", action = "Index"});
+                });
+            });
+
+            app.UseSpa(spa => { spa.Options.SourcePath = "wwwroot/UI"; });
         }
     }
 }
