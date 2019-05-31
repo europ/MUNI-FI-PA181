@@ -1,0 +1,71 @@
+[
+  {
+    "text": "2 - 2 = ?",
+    "description": "Rozdiel",
+    "afterSubmitFeedback": "Ľahké alebo nie?",
+    "answers": [
+      {
+        "text": "0",
+        "isCorrect": true
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": false
+      }
+    ]
+  },
+
+
+  {
+    "text": "2 + 2 = ?",
+    "description": "Súčet",
+    "afterSubmitFeedback": "Tak smiešne.",
+    "answers": [
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "9",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": true
+      }
+    ]
+  },
+
+
+  {
+    "text": "2 * 2 = ?",
+    "description": "Súčin",
+    "afterSubmitFeedback": "Obtiažne?",
+    "answers": [
+      {
+        "text": "1",
+        "isCorrect": false
+      },
+      {
+        "text": "2",
+        "isCorrect": false
+      },
+      {
+        "text": "3",
+        "isCorrect": false
+      },
+      {
+        "text": "4",
+        "isCorrect": true
+      }
+    ]
+  }
+]

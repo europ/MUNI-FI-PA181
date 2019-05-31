@@ -1,0 +1,75 @@
+[
+  {
+    "text": "Ktorý prvok je rádioaktívny?",
+    "description": "Prvky",
+    "afterSubmitFeedback": "Buďte si ich vedomí.",
+    "answers": [
+      {
+        "text": "Urán",
+        "isCorrect": true
+      },
+      {
+        "text": "Kyslík",
+        "isCorrect": false
+      },
+      {
+        "text": "Plutónium",
+        "isCorrect": true
+      },
+      {
+        "text": "Ortuť",
+        "isCorrect": false
+      }
+    ]
+  },
+
+
+  {
+    "text": "Čo je dihydrogén oxid?",
+    "description": "Chemická zlúčenina",
+    "afterSubmitFeedback": "Ste tak šikovný.",
+    "answers": [
+      {
+        "text": "Polyvinyl chlorid",
+        "isCorrect": false
+      },
+      {
+        "text": "Metán",
+        "isCorrect": false
+      },
+      {
+        "text": "Bronz",
+        "isCorrect": false
+      },
+      {
+        "text": "Voda",
+        "isCorrect": true
+      }
+    ]
+  },
+
+
+  {
+    "text": "Ktorý prvok je základom pre železiarsky priemysel?",
+    "description": "Kovy",
+    "afterSubmitFeedback": "... a taktiež pre Iron Man-a!!!",
+    "answers": [
+      {
+        "text": "Borum",
+        "isCorrect": false
+      },
+      {
+        "text": "Ferrum",
+        "isCorrect": true
+      },
+      {
+        "text": "Helium",
+        "isCorrect": false
+      },
+      {
+        "text": "Carboneum",
+        "isCorrect": true
+      }
+    ]
+  }
+]

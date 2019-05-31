@@ -1,0 +1,71 @@
+[
+  {
+    "text": "Ktorý z nich je jadrom počítača?",
+    "description": "Čip",
+    "afterSubmitFeedback": "Ľahké pre každého.",
+    "answers": [
+      {
+        "text": "CPU (centrálna spracovateľská jednotka)",
+        "isCorrect": true
+      },
+      {
+        "text": "USB (univerzálna sériová zbernica)",
+        "isCorrect": false
+      },
+      {
+        "text": "RAM (pamäť s náhodným prístupom)",
+        "isCorrect": false
+      }
+    ]
+  },
+
+
+  {
+    "text": "Kde uchovávame trvalé informácie na lokálnom počítači?",
+    "description": "Úložisko dát",
+    "afterSubmitFeedback": "Neuveriteľne ľahké.",
+    "answers": [
+      {
+        "text": "Procesor",
+        "isCorrect": false
+      },
+      {
+        "text": "Disk",
+        "isCorrect": true
+      },
+      {
+        "text": "Matičná doska",
+        "isCorrect": false
+      },
+      {
+        "text": "Klávesnica",
+        "isCorrect": false
+      }
+    ]
+  },
+
+
+  {
+    "text": "Aký termín sa používa pre adresu počítačovej siete?",
+    "description": "Siete",
+    "afterSubmitFeedback": "Jedna ťažšia.",
+    "answers": [
+      {
+        "text": "ID adresa",
+        "isCorrect": false
+      },
+      {
+        "text": "PI adresa",
+        "isCorrect": false
+      },
+      {
+        "text": "IT adresa",
+        "isCorrect": false
+      },
+      {
+        "text": "IP adresa",
+        "isCorrect": true
+      }
+    ]
+  }
+]
