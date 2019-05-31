@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Entities.Contexts;
+﻿using Entities.Contexts;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,7 +31,6 @@ namespace API
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseWebRoot(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UI/build"))
                 .UseStartup<Startup>();
     }
 }
