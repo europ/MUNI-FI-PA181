@@ -1,0 +1,71 @@
+[
+  {
+    "text": "Ktérý je největší světový oceán?",
+    "description": "Oceány",
+    "afterSubmitFeedback": "To byste měli vědět.",
+    "answers": [
+      {
+        "text": "Tichý oceán",
+        "isCorrect": true
+      },
+      {
+        "text": "Atlantický oceán",
+        "isCorrect": false
+      },
+      {
+        "text": "Indický oceán",
+        "isCorrect": false
+      }
+    ]
+  },
+
+
+  {
+    "text": "Kde jsou pyramidy?",
+    "description": "Monumenty",
+    "afterSubmitFeedback": "Pro vás lehké.",
+    "answers": [
+      {
+        "text": "Německo",
+        "isCorrect": false
+      },
+      {
+        "text": "Maďarsko",
+        "isCorrect": false
+      },
+      {
+        "text": "Slovensko",
+        "isCorrect": false
+      },
+      {
+        "text": "Egypt",
+        "isCorrect": true
+      }
+    ]
+  },
+
+
+  {
+    "text": "Kde žije lev?",
+    "description": "Zvířata",
+    "afterSubmitFeedback": "Toto je taková běžná věc.",
+    "answers": [
+      {
+        "text": "Evropa",
+        "isCorrect": false
+      },
+      {
+        "text": "Afrika",
+        "isCorrect": true
+      },
+      {
+        "text": "Antarktida",
+        "isCorrect": false
+      },
+      {
+        "text": "Arktida",
+        "isCorrect": false
+      }
+    ]
+  }
+]
