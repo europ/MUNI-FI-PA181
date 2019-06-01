@@ -1,0 +1,75 @@
+[
+  {
+    "text": "Který prvek je radioaktivní?",
+    "description": "Prvky",
+    "afterSubmitFeedback": "Buďte si jich vědomi.",
+    "answers": [
+      {
+        "text": "Uran",
+        "isCorrect": true
+      },
+      {
+        "text": "Kyslík",
+        "isCorrect": false
+      },
+      {
+        "text": "Plutonium",
+        "isCorrect": true
+      },
+      {
+        "text": "Rtuť",
+        "isCorrect": false
+      }
+    ]
+  },
+
+
+  {
+    "text": "Co je dihydrogen oxid?",
+    "description": "Chemická sloučenina",
+    "afterSubmitFeedback": "Jste tak šikovní.",
+    "answers": [
+      {
+        "text": "Polyvinyl chlorid",
+        "isCorrect": false
+      },
+      {
+        "text": "Metan",
+        "isCorrect": false
+      },
+      {
+        "text": "Bronz",
+        "isCorrect": false
+      },
+      {
+        "text": "Voda",
+        "isCorrect": true
+      }
+    ]
+  },
+
+
+  {
+    "text": "Který prvek má zásadní význam pro železářský průmysl?",
+    "description": "Kov",
+    "afterSubmitFeedback": "... a taky pro Iron Mana!!!",
+    "answers": [
+      {
+        "text": "Borum",
+        "isCorrect": false
+      },
+      {
+        "text": "Ferrum",
+        "isCorrect": true
+      },
+      {
+        "text": "Hélium",
+        "isCorrect": false
+      },
+      {
+        "text": "Krypton",
+        "isCorrect": false
+      }
+    ]
+  }
+]
