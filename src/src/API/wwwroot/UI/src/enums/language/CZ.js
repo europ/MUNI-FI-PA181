@@ -53,6 +53,7 @@ export const CZ = {
   SHOW_INFO: "Zobrazit info",
   SHOW_STATISTICS: "Zobrazit statistiky",
   SOURCE: "Zdroj",
+  START_OVER: "Začít odznova",
   SUBMIT: "Potvrdit",
   TERM_PROJECT_FOR_COURSE_PA181: "Term project for course PA181 (2019)",
   TEST_JSON_STRUCTURE: "Test ve formě JSON souboru",

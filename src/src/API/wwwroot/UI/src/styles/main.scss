@@ -272,3 +272,14 @@ a {
     text-decoration: none;
   }
 }
+
+ul[role="menu"] {
+  li {
+    &:focus {
+      background-color: $color-white !important;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.08) !important;
+      }
+    }
+  }
+}

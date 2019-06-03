@@ -52,6 +52,7 @@ export const EN = {
   SHOW_INFO: "Show info",
   SHOW_STATISTICS: "Show statistics",
   SOURCE: "Source",
+  START_OVER: "Start over",
   SUBMIT: "Submit",
   TERM_PROJECT_FOR_COURSE_PA181: "Semestrální projekt pro předmět PA181 (2019)",
   TEST_JSON_STRUCTURE: "Test as JSON file",

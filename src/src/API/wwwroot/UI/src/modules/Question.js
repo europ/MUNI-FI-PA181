@@ -36,7 +36,8 @@ const Question = ({
   infoHidden,
   setInfoHidden,
   resetTimer,
-  test
+  test,
+  startOver
 }) =>
   !test ? (
     <div />
@@ -51,7 +52,9 @@ const Question = ({
           }}
         >
           <div {...{ className: "question-row" }}>
-            <h2 {...{ className: "question-text margin-right-small" }}>{question.text}</h2>
+            <h2 {...{ className: "question-text margin-right-small" }}>
+              {question.text}
+            </h2>
             <div {...{ className: "flex-centered" }}>
               <p {...{ className: "margin-right-small" }}>{texts.QUESTION}</p>
               <Input
@@ -78,7 +81,9 @@ const Question = ({
                   }
                 }}
               />
-              <p {...{ className: "margin-right text-nowrap" }}>{`/ ${count}`}</p>
+              <p
+                {...{ className: "margin-right text-nowrap" }}
+              >{`/ ${count}`}</p>
               <DropDown
                 {...{
                   label: texts.MENU,
@@ -99,6 +104,10 @@ const Question = ({
                     {
                       label: texts.DELETE_STATISTICS,
                       onClick: resetStatistics
+                    },
+                    {
+                      label: texts.START_OVER,
+                      onClick: startOver
                     }
                   ]
                 }}
@@ -400,6 +409,13 @@ export default compose(
       clearInterval(intervalId);
       setTimerStartTime(Date.now());
       setIntervalId(setInterval(updateTimer, 30));
+    }
+  }),
+  withHandlers({
+    startOver: ({ resetStatistics, resetTimer, history, testId }) => () => {
+      resetStatistics();
+      resetTimer();
+      history.push(`/tests/${testId}/1`);
     }
   }),
   lifecycle({

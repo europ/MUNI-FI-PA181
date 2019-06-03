@@ -178,6 +178,11 @@ a {
   .link:hover {
     text-decoration: none; }
 
+ul[role="menu"] li:focus {
+  background-color: #ffffff !important; }
+  ul[role="menu"] li:focus:hover {
+    background-color: rgba(0, 0, 0, 0.08) !important; }
+
 /* BASIC */
 .flex {
   display: flex; }

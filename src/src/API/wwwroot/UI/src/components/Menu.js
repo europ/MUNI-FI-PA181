@@ -9,10 +9,10 @@ const MenuComponent = props => <Menu {...props} />;
 export default compose(
   defaultProps({ id: "menu", closeOnItemClick: false }),
   withProps(({ items, onClose, closeOnItemClick }) => ({
-    children: map(items, ({ label, onClick, ...item }, key) => (
+    children: map(items, ({ label, onClick, ...item }) => (
       <MenuItem
         {...{
-          key,
+          key: label,
           onClick: () => {
             onClick();
             if (closeOnItemClick) {

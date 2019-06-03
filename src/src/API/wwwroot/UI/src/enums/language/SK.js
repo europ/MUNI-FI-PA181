@@ -53,6 +53,7 @@ export const SK = {
   SHOW_INFO: "Zobraziť info",
   SHOW_STATISTICS: "Zobraziť štatistiky",
   SOURCE: "Zdroj",
+  START_OVER: "Začať odznova",
   SUBMIT: "Potvrdit",
   TERM_PROJECT_FOR_COURSE_PA181: "Semestrálne projekt pre predmet PA181 (2019)",
   TEST_JSON_STRUCTURE: "Test vo forme JSON súboru",
