@@ -6,7 +6,7 @@
 
 ## About
 
-Term project for course [PA181 Services - Systems, Modeling and Execution](https://is.muni.cz/predmet/fi/jaro2019/PA181) in year 2019. Within the project, we had to create a fully functional application using the [IBM Cloud](https://cloud.ibm.com/) technology including a detailed documentation and a presentation.
+Term project for course [PA181 Services - Systems, Modeling and Execution](https://is.muni.cz/predmet/fi/jaro2019/PA181) in year 2019. Within the project, we had to create a fully functional application using the [IBM Cloud](https://cloud.ibm.com/) technology including a detailed documentation and a presentation. The application offers a user-self testing platform, where you can run one of available tests or upload your custom test suite.
 
 ## Contents
 
