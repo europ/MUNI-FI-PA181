@@ -15,7 +15,11 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import { Card, Button, DropDown, Input } from "../components";
 import { withLoader } from "../hoc";
 import { getTest } from "../actions";
-import { millisecondsToString, shuffle } from "../utils";
+import { millisecondsToString, shuffle, storage } from "../utils";
+import { isArray } from "util";
+
+const getWronglyAnsweredKey = testId => `test-${testId}-wrong`;
+const getCorrectlyAnsweredKey = testId => `test-${testId}-correct`;
 
 const Question = ({
   history,
@@ -316,6 +320,25 @@ export default compose(
       Math.round((correctlyAnswered.length / count) * 100 * 10) / 10
   })),
   withHandlers({
+    setWronglyAnswered: ({ setWronglyAnswered, testId }) => wronglyAnswered => {
+      setWronglyAnswered(wronglyAnswered);
+      storage.put(
+        getWronglyAnsweredKey(testId),
+        JSON.stringify(wronglyAnswered)
+      );
+    },
+    setCorrectlyAnswered: ({
+      setCorrectlyAnswered,
+      testId
+    }) => correctlyAnswered => {
+      setCorrectlyAnswered(correctlyAnswered);
+      storage.put(
+        getCorrectlyAnsweredKey(testId),
+        JSON.stringify(correctlyAnswered)
+      );
+    }
+  }),
+  withHandlers({
     updateTest: ({ test, setTest }) => patch => setTest({ ...test, ...patch }),
     addWronglyAnswered: ({
       wronglyAnswered,
@@ -420,7 +443,13 @@ export default compose(
   }),
   lifecycle({
     async componentWillMount() {
-      const { setTest, testId, showLoader } = this.props;
+      const {
+        setTest,
+        testId,
+        showLoader,
+        setWronglyAnswered,
+        setCorrectlyAnswered
+      } = this.props;
 
       showLoader();
 
@@ -433,6 +462,26 @@ export default compose(
           answers: shuffle(question.answers)
         }))
       });
+
+      let wronglyAnswered = [];
+
+      try {
+        wronglyAnswered = JSON.parse(
+          storage.get(getWronglyAnsweredKey(testId))
+        );
+      } catch (e) {}
+
+      setWronglyAnswered(isArray(wronglyAnswered) ? wronglyAnswered : []);
+
+      let correctlyAnswered = [];
+
+      try {
+        correctlyAnswered = JSON.parse(
+          storage.get(getCorrectlyAnsweredKey(testId))
+        );
+      } catch (e) {}
+
+      setCorrectlyAnswered(isArray(correctlyAnswered) ? correctlyAnswered : []);
 
       showLoader(false);
     },

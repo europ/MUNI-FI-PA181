@@ -1,4 +1,4 @@
-import { APP_NAME } from "../../constants";
+import { APP_NAME, APP_NAME_FULL_NAME } from "../../constants";
 
 export const EN = {
   ABOUT: "About",
@@ -12,6 +12,7 @@ export const EN = {
     "Answers - it is possible to set more answers as correct (more answers can have attribute",
   APP_DESCRIPTION: "Application for user self-testing.",
   APP_NAME,
+  APP_NAME_FULL_NAME,
   AUTHORS: "Authors",
   BACK_TO: "Back to",
   CANCEL: "Cancel",
@@ -54,7 +55,6 @@ export const EN = {
   SOURCE: "Source",
   START_OVER: "Start over",
   SUBMIT: "Submit",
-  TERM_PROJECT_FOR_COURSE_PA181: "Semestrální projekt pro předmět PA181 (2019)",
   TEST_JSON_STRUCTURE: "Test as JSON file",
   TEST_JSON_STRUCTURE_EXAMPLE: "Example of test as JSON file",
   TESTS: "Tests",

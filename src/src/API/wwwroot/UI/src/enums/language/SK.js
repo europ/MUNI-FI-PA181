@@ -1,4 +1,4 @@
-import { APP_NAME } from "../../constants";
+import { APP_NAME, APP_NAME_FULL_NAME } from "../../constants";
 
 export const SK = {
   ABOUT: "O nás",
@@ -12,6 +12,7 @@ export const SK = {
     "Odpovede - je možné zvoliť viac odpovedí ako správne (viac odpovedí môže mať atribút",
   APP_DESCRIPTION: "Aplikácie pre testovanie užívateľa.",
   APP_NAME,
+  APP_NAME_FULL_NAME,
   AUTHORS: "Autori",
   BACK_TO: "Späť na",
   CANCEL: "Zrušiť",
@@ -55,7 +56,6 @@ export const SK = {
   SOURCE: "Zdroj",
   START_OVER: "Začať odznova",
   SUBMIT: "Potvrdit",
-  TERM_PROJECT_FOR_COURSE_PA181: "Semestrálne projekt pre predmet PA181 (2019)",
   TEST_JSON_STRUCTURE: "Test vo forme JSON súboru",
   TEST_JSON_STRUCTURE_EXAMPLE: "Príklad testu vo forme JSON súboru",
   TESTS: "Sady otázok",

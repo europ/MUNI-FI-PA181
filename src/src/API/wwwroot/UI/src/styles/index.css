@@ -341,6 +341,7 @@ ul[role="menu"] li:focus {
 
 /* COMPONENTS */
 .appbar .title {
+  cursor: pointer;
   margin-left: 1em;
   display: none; }
 

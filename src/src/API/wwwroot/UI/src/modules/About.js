@@ -12,7 +12,7 @@ const About = ({ texts }) => (
         {texts.TITLE}:
       </h3>
       <h3 {...{ className: "margin-bottom-only text-center width-full" }}>
-        {texts.TERM_PROJECT_FOR_COURSE_PA181}
+        {texts.APP_NAME_FULL_NAME}
       </h3>
     </div>
     <div {...{ className: "flex-col-centered width-full" }}>

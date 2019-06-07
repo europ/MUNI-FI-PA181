@@ -42,7 +42,12 @@ const AppBarComponent = ({
               <Menu />
             </IconButton>
             <Typography
-              {...{ variant: "h6", color: "inherit", className: "title" }}
+              {...{
+                variant: "h6",
+                color: "inherit",
+                className: "title",
+                onClick: () => history.push("/")
+              }}
             >
               {texts.APP_NAME}
             </Typography>
