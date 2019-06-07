@@ -166,7 +166,7 @@ Besides the used technologies we were using additional available tools such as:
 
 \section{Work Division}
 
-Our team consisted of 5 members: Adrián Tóth, Jan Ondruch, Jiří Čechák, Tadeáš Pavlík and Václav Stehlík.\\
+Our team consisted of 5 members: Adrián Tóth, Jan Ondruch, Jiří Čechák, Tadeáš Pavlík and Václav Stehlík. Each of us was working collaboratively together (except the individual assigned tasks) and the project was done in advance.\\[-3mm]
 
 Everyone from us was in charge of a certain part of the project. The work was divided as the following:
 \begin{itemize}
@@ -222,20 +222,9 @@ Everyone from us was in charge of a certain part of the project. The work was di
 
 \section{References}\label{sec:references}
 
-Domain names of the deployed application are:
+Everything related to the project can be found at:
 \begin{itemize}
-    \item \href{https://pa181.eu-de.mybluemix.net/}{\color{urlColor}{pa181.eu-de.mybluemix.net}}
-    \item \href{https://pa181.eu-de.cf.appdomain.cloud/}{\color{urlColor}{pa181.eu-de.cf.appdomain.cloud}}
-\end{itemize}
-
-Source code of the application can be found at:
-\begin{itemize}
-    \item \href{https://github.com/europ/MUNI-FI-PA181/tree/master/src}{\color{urlColor}{github.com/europ/MUNI-FI-PA181/tree/master/src}}
-\end{itemize}
-
-Setup guide for the application can be found at:
-\begin{itemize}
-    \item \href{https://github.com/europ/MUNI-FI-PA181/wiki/Setup}{\color{urlColor}{github.com/europ/MUNI-FI-PA181/wiki/Setup}}
+    \item \href{https://github.com/europ/MUNI-FI-PA181}{\color{urlColor}{github.com/europ/MUNI-FI-PA181}}
 \end{itemize}
 
 Documentation of the application can be found at:
@@ -248,19 +237,35 @@ Presentation of the application can be found at:
     \item \href{https://github.com/europ/MUNI-FI-PA181/blob/master/pres/pres.pdf}{\color{urlColor}{github.com/europ/MUNI-FI-PA181/blob/master/pres/pres.pdf}}
 \end{itemize}
 
+Source code of the application can be found at:
+\begin{itemize}
+    \item \href{https://github.com/europ/MUNI-FI-PA181/tree/master/src}{\color{urlColor}{github.com/europ/MUNI-FI-PA181/tree/master/src}}
+\end{itemize}
+
+Setup guide for the application can be found at:
+\begin{itemize}
+    \item \href{https://github.com/europ/MUNI-FI-PA181/wiki/Setup}{\color{urlColor}{github.com/europ/MUNI-FI-PA181/wiki/Setup}}
+\end{itemize}
+
+Domain names of the deployed application are:
+\begin{itemize}
+    \item \href{https://pa181.eu-de.mybluemix.net/}{\color{urlColor}{pa181.eu-de.mybluemix.net}}
+    \item \href{https://pa181.eu-de.cf.appdomain.cloud/}{\color{urlColor}{pa181.eu-de.cf.appdomain.cloud}}
+\end{itemize}
+
 \section{Application initialization}
 
-Firstly, we have chosen a stable, reliable and safe platform supporting team project development - GitHub. Furthermore, GitHub provides a version control system management and the integration with IBM Cloud is supported. Subsequently, after the repository was configured properly, we had to choose the technologies. We decided to use \#C (general-purpose, multi-paradigm and object oriented programming language) and React (library for building user interfaces) for the project. Also, we decided to use react Material-UI components for our UI. Based on the above, we have initialized the project skeleton - a \textit{'Hello, World!'} application.
+Firstly, we have chosen a stable, reliable and safe platform supporting team project development - GitHub. Furthermore, GitHub provides a version control system management and the integration with IBM Cloud is supported. Subsequently, after the repository was configured properly, we had to choose the technologies. We decided to use \#C (general-purpose, multi-paradigm and object oriented programming language) and React (library for building user interfaces) for the project. Also, we decided to use react Material-UI components for our UI. Based on the above, we have initialized the project skeleton - a \textit{'Hello, World!'} cloud foundry application. We took inspiration from \textit{'ASP.NET Core getting started application'}\footnote{\href{https://github.com/IBM-Cloud/aspnet-core-helloworld}{\color{urlColor}{github.com/IBM-Cloud/aspnet-core-helloworld}}} available on GitHub under the terms of \textit{Apache License 2.0}.
 
 \section{Application implementation}
 
 The project was implemented via \textit{ASP.NET} framework using a Model--view--controller architectural pattern. The core UI was implemented in JavaScript using React library and Material UI components. This UI is interconnected with backend using our REST API (e.g. the test are passed in JSON format). The application validates the input on the both sides - frontend and backend.\\
 
-Our application was divided into parts that communicate together and process requests - API, entities, repositories and services. The requests are firstly processed in the API, more precisely endpoint in controller. To process this request, the required actions are delegated to services (the business logic specific for our application) that delegates the related subrequests to repository that provides the database communication using wrappers. The application supports also an application log too, which makes the fatal failures easier to find.
+Our application was divided into parts that communicate together and process requests - API, entities, repositories and services. The requests are firstly processed in the API, more precisely endpoint in controller. To process this request, the required actions are delegated to services (the business logic specific for our application) that delegates the related subrequests to repository that provides the data layer communication using wrappers. The application supports also an application log too, which makes the fatal failures easier to find.
 
 \section{Application deployment}
 
-The deployment was configured before the core implementation itself. Deployment was initialized and configured on the already set \textit{'Hello, World!'} application. We wanted to create a fully automated delivery with zero intervention required, which allowed us to concentrate and focus on code only instead of problematic deployment. We were using a continuous delivery approach - automated build and deploy method via IBM's delivery pipeline. The delivery pipeline was configured to automatically install all required dependencies, build and deploy the application. The development process required to just commit the changes into the version control repository.\\
+The deployment was configured before the core implementation itself. Deployment was initialized and configured on the already set \textit{'Hello, World!'} application. We wanted to create a fully automated delivery with zero intervention required, which allowed us to concentrate and focus on the code only instead of deployment related set of activities. We were using a continuous delivery approach -- automated build and deploy method via IBM's delivery pipeline (more precisely the delivery pipeline stage in the IBM Cloud DevOps toolchain). The delivery pipeline was configured to automatically install all required dependencies, build and deploy the application and also, mark the commit with a success, failure or error status. The development process required to just commit the changes into the version control repository while using a fully automated continuous delivery.\\
 
 Whole deployment is based on one own properly configured DevOps toolchain. The toolchain is shown in Figure \ref{fig:toolchain}, which includes GitHub\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#github}{\color{urlColor}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#github}}}, Travis CI\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#othertool}{\color{urlColor}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#othertool}}} (as other tool) and Delivery Pipeline\footnote{\href{https://console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#deliverypipeline}{\color{urlColor}{console.bluemix.net/docs/services/ContinuousDelivery/toolchains\_integrations.html\#deliverypipeline}}}.
 
@@ -271,7 +276,7 @@ Whole deployment is based on one own properly configured DevOps toolchain. The t
     \label{fig:toolchain}
 \end{figure}
 
-The toolchain providing a continuous delivery service allows us to focus on code only. After the continuous delivery toolchain was set properly, we just had to commit the changes to the repository and the application was immediately built and deployed.
+The toolchain providing a continuous delivery service allows us to focus on code only. After the continuous delivery toolchain was set properly, we just had to commit the changes to the repository and the application was immediately built and deployed. As a feedback, the commit was marked with a status based on the build result.
 
 \section{Application instructions}
 
@@ -281,7 +286,7 @@ How to launch the application from source can be found in the \textit{setup guid
 
 \begin{figure}[H]
     \centering
-    \fcolorbox{imageBorderColor}{white}{\includegraphics[scale=0.215]{img/application/example1.png}}
+    \fcolorbox{imageBorderColor}{white}{\includegraphics[scale=0.375]{img/application/example1.png}}
     \caption{Example 1 - list of available tests.}
     \label{fig:example1}
 \end{figure}
@@ -350,6 +355,9 @@ During the project development we have faced a few problems that have been repor
 \begin{itemize}
     \item \href{https://github.com/IBM-Bluemix-Docs/ContinuousDelivery/issues/13}{\color{urlColor}{\color{urlColor}}{github.com/IBM-Bluemix-Docs/ContinuousDelivery/issues/13}}
     \item \href{https://github.com/IBM-Cloud/aspnet-core-helloworld/issues/39}{\color{urlColor}{github.com/IBM-Cloud/aspnet-core-helloworld/issues/39}}
+    \begin{itemize}
+        \item \href{https://github.com/IBM-Cloud/aspnet-core-helloworld/pull/40}{\color{urlColor}{\color{urlColor}}{github.com/IBM-Cloud/aspnet-core-helloworld/pull/40}}
+    \end{itemize}
 \end{itemize}
 
 \end{document}
