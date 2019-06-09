@@ -253,17 +253,17 @@ Domain names of the deployed application are:
     \item \href{https://pa181.eu-de.cf.appdomain.cloud/}{\color{urlColor}{pa181.eu-de.cf.appdomain.cloud}}
 \end{itemize}
 
-\section{Application initialization}
+\section{Application Initialization}
 
 Firstly, we have chosen a stable, reliable and safe platform supporting team project development - GitHub. Furthermore, GitHub provides a version control system management and the integration with IBM Cloud is supported. Subsequently, after the repository was configured properly, we had to choose the technologies. We decided to use \#C (general-purpose, multi-paradigm and object oriented programming language) and React (library for building user interfaces) for the project. Also, we decided to use react Material-UI components for our UI. Based on the above, we have initialized the project skeleton - a \textit{'Hello, World!'} cloud foundry application. We took inspiration from \textit{'ASP.NET Core getting started application'}\footnote{\href{https://github.com/IBM-Cloud/aspnet-core-helloworld}{\color{urlColor}{github.com/IBM-Cloud/aspnet-core-helloworld}}} available on GitHub under the terms of \textit{Apache License 2.0}.
 
-\section{Application implementation}
+\section{Application Implementation}
 
 The project was implemented via \textit{ASP.NET} framework using a Model--view--controller architectural pattern. The core UI was implemented in JavaScript using React library and Material UI components. This UI is interconnected with backend using our REST API (e.g. the test are passed in JSON format). The application validates the input on the both sides - frontend and backend.\\
 
 Our application was divided into parts that communicate together and process requests - API, entities, repositories and services. The requests are firstly processed in the API, more precisely endpoint in controller. To process this request, the required actions are delegated to services (the business logic specific for our application) that delegates the related subrequests to repository that provides the data layer communication using wrappers. The application supports also an application log too, which makes the fatal failures easier to find.
 
-\section{Application deployment}
+\section{Application Deployment}
 
 The deployment was configured before the core implementation itself. Deployment was initialized and configured on the already set \textit{'Hello, World!'} application. We wanted to create a fully automated delivery with zero intervention required, which allowed us to concentrate and focus on the code only instead of deployment related set of activities. We were using a continuous delivery approach -- automated build and deploy method via IBM's delivery pipeline (more precisely the delivery pipeline stage in the IBM Cloud DevOps toolchain). The delivery pipeline was configured to automatically install all required dependencies, build and deploy the application and also, mark the commit with a success, failure or error status. The development process required to just commit the changes into the version control repository while using a fully automated continuous delivery.\\
 
@@ -278,9 +278,27 @@ Whole deployment is based on one own properly configured DevOps toolchain. The t
 
 The toolchain providing a continuous delivery service allows us to focus on code only. After the continuous delivery toolchain was set properly, we just had to commit the changes to the repository and the application was immediately built and deployed. As a feedback, the commit was marked with a status based on the build result.
 
-\section{Application instructions}
+\section{Application Instructions}
 
 How to launch the application from source can be found in the \textit{setup guide} (see Section \ref{sec:references}).
+
+\section{Use Case Diagram}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.07]{diag/use_case.pdf}
+    \caption{Use case diagram.}
+    \label{fig:usecase}
+\end{figure}
+
+\section{Flow Diagram}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.07]{diag/flow.pdf}
+    \caption{Flow diagram.}
+    \label{fig:flow}
+\end{figure}
 
 \section{Screenshots}
 
@@ -349,7 +367,7 @@ How to launch the application from source can be found in the \textit{setup guid
 
 \newpage
 
-\section{Development issues}
+\section{Development Issues}
 
 During the project development we have faced a few problems that have been reported:
 \begin{itemize}
