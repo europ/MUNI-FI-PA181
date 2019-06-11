@@ -10,8 +10,10 @@ Term project for course [PA181 Services - Systems, Modeling and Execution](https
 
 ## Contents
 
-* [project presentation](https://github.com/europ/MUNI-FI-PA181/blob/master/pres/pres.pdf)
 * [project documentation](https://github.com/europ/MUNI-FI-PA181/blob/master/doc/doc.pdf)
+* project presentation
+  * [project presentation 1](https://github.com/europ/MUNI-FI-PA181/blob/master/pres1/pres.pdf)
+  * [project presentation 2](https://github.com/europ/MUNI-FI-PA181/blob/master/pres2/pres.pdf)
 * [repository structure](https://github.com/europ/MUNI-FI-PA181/wiki/Structure)
 * [project setup](https://github.com/europ/MUNI-FI-PA181/wiki/Setup)
 * domains of the hosted project
